@@ -32,7 +32,7 @@ Route::group($adminConfig, function () {
     Route::put('working-process/update/{id}', 'WorkingProcess@update')->name('working-process.update');
     Route::put('working-process/services/update/{id}', 'WorkingProcessServiceController@update')->name('working-process.services.update');
 
-    Route::put('images/update/{id}/{text_id}', 'ImageController@update')->name('images.update');
+    Route::put('images/update/{image_id}/{text_id?}', 'ImageController@update')->name('images.update');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
