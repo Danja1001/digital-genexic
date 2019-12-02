@@ -43,5 +43,11 @@ class HomePageController extends Controller
     }
 
     public function update(Request $request, $id)
-    { }
+    {
+        $updateData = $request->all();
+        $home_page = HomePageModel::find($id);
+        $home_page->update($updateData);
+
+        return back()->with('status', 'Successful updated!');
+    }
 }
