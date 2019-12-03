@@ -15,9 +15,8 @@ class ParagraphController extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateData = $request->all();
-
         $paragraph = Paragraph::find($id);
+        $updateData = $request->only($paragraph->getFillable());
         $paragraph->update($updateData);
 
         return back()->with('status', 'Successful updated!');

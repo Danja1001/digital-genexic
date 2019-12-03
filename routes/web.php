@@ -26,13 +26,13 @@ Route::group($adminConfig, function () {
      * HOME PAGE ROUTES
      */
     Route::get('home-page/{lang}', 'HomePageController@index')->name('home-page.index');
-    Route::put('home-page/update/{id}', 'HomePageController@update')->name('home-page.update');
+    Route::post('home-page/update/{id}', 'HomePageController@update')->name('home-page.update');
 
-    Route::put('paragraphs/update/{id}', 'ParagraphController@update')->name('paragraphs.update');
-    Route::put('working-process/update/{id}', 'WorkingProcess@update')->name('working-process.update');
-    Route::put('working-process/services/update/{id}', 'WorkingProcessServiceController@update')->name('working-process.services.update');
+    Route::post('paragraphs/update/{id}', 'ParagraphController@update')->name('paragraphs.update');
+    Route::post('working-process/update/{id}', 'WorkingProcessController@update')->name('working-process.update');
+    Route::post('working-process/services/update/{id}', 'WorkingProcessServiceController@update')->name('working-process.services.update');
 
-    Route::put('images/update/{image_id}/{text_id?}', 'ImageController@update')->name('images.update');
+    Route::post('images/update/{image_id}/{text_id?}', 'ImageController@update')->name('images.update');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

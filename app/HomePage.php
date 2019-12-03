@@ -11,7 +11,7 @@ class HomePage extends Model
      *
      * @var array
      */
-    protected $fillable = ['lang_id', 'title', 'subtitle', 'header_btn_title'];
+    protected $fillable = ['lang_id', 'title', 'subtitle', 'header_btn_title', 'footer_title', 'footer_text', 'footer_btn_title'];
 
     public function lang()
     {

@@ -15,8 +15,8 @@ class WorkingProcessServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateData = $request->all();
         $workingProcessService = WorkingProccessServices::find($id);
+        $updateData = $request->only($workingProcessService->getFillable());
         $workingProcessService->update($updateData);
 
         return back()->with('status', 'Successful updated!');
