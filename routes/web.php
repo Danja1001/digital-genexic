@@ -33,6 +33,13 @@ Route::group($adminConfig, function () {
     Route::post('working-process/services/update/{id}', 'WorkingProcessServiceController@update')->name('working-process.services.update');
 
     Route::post('images/update/{image_id}/{text_id?}', 'ImageController@update')->name('images.update');
+
+    /**
+     * ABOUT US PAGE
+     */
+    Route::get('about-us-page/{lang}', 'AboutUsController@index')->name('about-us-page.index');
+    Route::post('about-us-page/update/{id}', 'AboutUsController@update')->name('about-us-page.update');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

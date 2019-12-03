@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 03 2019 г., 00:04
+-- Время создания: Дек 04 2019 г., 00:15
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -25,6 +25,78 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `about_to_images`
+--
+
+CREATE TABLE `about_to_images` (
+  `about_us_page_id` int(10) UNSIGNED NOT NULL,
+  `image_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `about_to_images`
+--
+
+INSERT INTO `about_to_images` (`about_us_page_id`, `image_id`) VALUES
+(1, 7),
+(2, 7),
+(1, 8),
+(2, 8),
+(1, 9),
+(2, 9),
+(1, 10),
+(2, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_to_paragraphs`
+--
+
+CREATE TABLE `about_to_paragraphs` (
+  `about_us_page_id` int(10) UNSIGNED NOT NULL,
+  `paragraph_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `about_to_paragraphs`
+--
+
+INSERT INTO `about_to_paragraphs` (`about_us_page_id`, `paragraph_id`) VALUES
+(1, 9),
+(2, 10),
+(1, 11),
+(2, 12),
+(1, 13),
+(2, 14),
+(1, 15),
+(2, 16),
+(1, 17),
+(2, 18),
+(1, 19),
+(2, 20),
+(1, 21),
+(2, 22),
+(1, 23),
+(2, 24),
+(1, 25),
+(2, 26),
+(1, 27),
+(2, 28),
+(1, 29),
+(2, 30),
+(1, 31),
+(2, 32),
+(1, 33),
+(2, 34),
+(1, 35),
+(2, 36),
+(1, 37),
+(2, 38);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `about_us_pages`
 --
 
@@ -35,8 +107,17 @@ CREATE TABLE `about_us_pages` (
   `footer_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `footer_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `read_more_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `about_us_pages`
+--
+
+INSERT INTO `about_us_pages` (`id`, `lang_id`, `title`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`, `read_more_btn_title`) VALUES
+(1, 2, 'ABOUT US', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'READ MORE'),
+(2, 1, 'О НАС', 'Летс старт а нью проджет тугезер', 'ГЕТ ИН ТАЧ', NULL, NULL, 'ЧИТАТЬ БОЛЬШЕ');
 
 -- --------------------------------------------------------
 
@@ -203,12 +284,16 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image`, `icon`, `created_at`, `updated_at`) VALUES
-(1, 'home/3d.png', 1, NULL, NULL),
-(2, 'home/portfolio.png', 1, NULL, NULL),
-(3, 'home/smartphone.png', 1, NULL, NULL),
-(4, 'home/color-circle.png', 1, NULL, NULL),
-(5, 'home/laptop.png', 1, NULL, NULL),
-(6, 'home/layers.png', 1, NULL, NULL);
+(1, 'home/yvOHEpZ4Aasao2jzU9HY2mDIJxc33zudqXv1IxNw.png', 1, NULL, '2019-12-03 18:01:01'),
+(2, 'home/PHTrRSiVZ1To3HDNqsvYVR1he0vjhu3rZaYe4iLh.png', 1, NULL, '2019-12-03 18:02:33'),
+(3, 'home/reOgScp7leDNFHDtO5zCxZS2LizFX9upbCWUV2r4.png', 1, NULL, '2019-12-03 18:02:21'),
+(4, 'home/qmd4jMOTl3ZYG5Y9wXNzUy0o7YWXkRyvIeSqMm24.png', 1, NULL, '2019-12-03 18:02:06'),
+(5, 'home/thdPU8vgxnkuA6xZPZqPP4qr9v29rW0L38RdCO5A.png', 1, NULL, '2019-12-03 18:01:41'),
+(6, 'home/cVbHp4KDgoN8K8GDfKj1pPIjplgvLhekJe9jxWlH.png', 1, NULL, '2019-12-03 18:01:54'),
+(7, 'home/q41lALXmWjaPpJ9hLgrzMgwis3HJ38WT17F0QnNh.png', 0, NULL, '2019-12-03 19:04:05'),
+(8, 'home/rXIVrrl4jmqKMF5JYkOhdXKvzHIRTqKWASu5xwPw.png', 1, NULL, '2019-12-03 19:05:09'),
+(9, 'home/UYMUpYU9uxYmEGzSW17b6j7RZHQKcBJeqG0NaKjo.png', 1, NULL, '2019-12-03 19:05:20'),
+(10, 'home/wZGUq48tviBsPjQWCJCSqisqEVY31WkhrEvvoXV6.png', 1, NULL, '2019-12-03 19:05:30');
 
 -- --------------------------------------------------------
 
@@ -233,7 +318,7 @@ CREATE TABLE `image_texts` (
 INSERT INTO `image_texts` (`id`, `image_id`, `lang_id`, `title`, `text`, `created_at`, `updated_at`) VALUES
 (1, 1, 2, '3D- GRAPHICS', NULL, NULL, NULL),
 (2, 1, 1, '3D графика', NULL, NULL, NULL),
-(3, 4, 2, 'CORPORATE STYLE\r\n\r\n', NULL, NULL, NULL),
+(3, 4, 2, 'CORPORATE STYLE', NULL, NULL, '2019-12-03 18:02:06'),
 (4, 4, 1, 'Корпоративный стиль', NULL, NULL, NULL),
 (5, 5, 2, 'Laptop', NULL, NULL, NULL),
 (6, 5, 1, 'лпатоп', NULL, NULL, NULL),
@@ -242,7 +327,13 @@ INSERT INTO `image_texts` (`id`, `image_id`, `lang_id`, `title`, `text`, `create
 (9, 2, 2, 'asdasdsaddasad', NULL, NULL, NULL),
 (10, 2, 1, 'фыаыфвфыв', NULL, NULL, NULL),
 (11, 3, 2, 'adsasdadssadaszxc', NULL, NULL, NULL),
-(12, 3, 1, 'фывяяяывфывф', NULL, NULL, NULL);
+(12, 3, 1, 'фывяяяывфывф', NULL, NULL, NULL),
+(13, 8, 2, '18 +', 'PROFESSIONALS', NULL, NULL),
+(14, 8, 1, '18 +', 'ПРОФИ', NULL, NULL),
+(15, 9, 2, '55 +', 'HAPPY CLIENTS', NULL, NULL),
+(16, 9, 1, '55 +', 'СЧАСТЛИВЫЕ КЛИЕНТЫ', NULL, NULL),
+(17, 10, 2, '63 +', 'DELIVERED PROJECTS', NULL, NULL),
+(18, 10, 1, '63 +', 'ЗАВЕРШЕННЫЕ ПРОЕТКЫ', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -309,7 +400,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2019_12_01_112014_create_working_proccesses_table', 3),
 (27, '2019_12_01_112329_create_working_proccess_services_table', 3),
 (28, '2019_12_01_112711_update_working_processes_table_add_lang_foreign', 4),
-(29, '2019_12_01_113047_update_working_processes_services_table_add_lang_foreign', 5);
+(29, '2019_12_01_113047_update_working_processes_services_table_add_lang_foreign', 5),
+(30, '2019_12_01_132651_create_project_types_table', 6),
+(31, '2019_12_01_132652_create_projects_table', 6),
+(32, '2019_12_02_100159_create_about_to_paragraphs_table', 6),
+(33, '2019_12_02_100741_create_about_to_images_table', 6),
+(34, '2019_12_02_101336_update_about_us_page_add_read_more_title', 6),
+(35, '2019_12_02_102147_update_services_page_add_read_more_title', 6);
 
 -- --------------------------------------------------------
 
@@ -337,7 +434,37 @@ INSERT INTO `paragraphs` (`id`, `lang_id`, `title`, `text`, `location`) VALUES
 (5, 2, 'WORKING PROCESS', 'We realize what has to be done, and offer information about the project at every single stage. We are ready to answer any questions you may have at any time.', 'working_process'),
 (6, 1, 'Рабочий процесс', 'We realize what has to be done, and offer information about the project at every single stage. We are ready to answer any questions you may have at any time.', 'working_process'),
 (7, 2, 'YOUR MOST AUDACIOUS VISION', 'Let us at it', 'vision'),
-(8, 1, 'ВАШЕ САМОЕ АУДИОЗВУЧНОЕ ВИДЕНИЕ', 'Давайте на это', 'vision');
+(8, 1, 'ВАШЕ САМОЕ АУДИОЗВУЧНОЕ ВИДЕНИЕ', 'Давайте на это1', 'vision'),
+(9, 2, NULL, 'Genexic is a US Company with an R&D in Ukraine that has been helping inventors turn their thoughts into code since 2013. We use the latest tools to realize your ideas via computers and other devices.', 'main'),
+(10, 1, NULL, 'Genexic is a РУ Company with an R&D in Ukraine that has been helping inventors turn their thoughts into code since 2013. We use the latest tools to realize your ideas via computers and other devices.', 'main'),
+(11, 2, NULL, 'Developing new products for Gaming & Leisure, FinTech, Ecommerce & Retail, Media & Entertainment, Software & Hi-Tech; together we drive our society to be more innovative. Creating fascinating designs for websites and applications, we make the world more beautiful and enjoyable. Establishing good communication and management in each project, we make our relationships stronger and more trustworthy.', 'main'),
+(12, 1, NULL, 'РУDeveloping new products for Gaming & Leisure, FinTech, Ecommerce & Retail, Media & Entertainment, Software & Hi-Tech; together we drive our society to be more innovative. Creating fascinating designs for websites and applications, we make the world more beautiful and enjoyable. Establishing good communication and management in each project, we make our relationships stronger and more trustworthy.', 'main'),
+(13, 2, NULL, 'We truly care about bringing your business quick growth and great success. Focusing on results, openness, responsibility, our team always counts on these values while cooperating with you. Computools is not just a business partner, we are the true friends for those who depend on us in their creative process.', 'main'),
+(14, 1, NULL, 'РУWe truly care about bringing your business quick growth and great success. Focusing on results, openness, responsibility, our team always counts on these values while cooperating with you. Computools is not just a business partner, we are the true friends for those who depend on us in their creative process.', 'main'),
+(15, 2, NULL, 'You can contact our company from any part of the world, 24/7. Get personally acquainted with us in LosAngeles, Boston, Tel Aviv, Kiev, Khmelnitskii.', 'main'),
+(16, 1, NULL, 'РУYou can contact our company from any part of the world, 24/7. Get personally acquainted with us in LosAngeles, Boston, Tel Aviv, Kiev, Khmelnitskii.', 'main'),
+(17, 2, 'OUR MISSION', 'Promote prosperity for customers’ businesses through full cycle servicing of innovative software development, enabling customers to concentrate on their core tasks.', 'sub_main'),
+(18, 1, 'НАША МИССИЯ', 'РУ Promote prosperity for customers’ businesses through full cycle servicing of innovative software development, enabling customers to concentrate on their core tasks.', 'sub_main'),
+(19, 2, 'OUR VISION', 'To be a global service provider that helps develop innovative software products within our customers’ industries.', 'sub_main'),
+(20, 1, 'НАШ ВИЗИОН', 'РУTo be a global service provider that helps develop innovative software products within our customers’ industries.', 'sub_main'),
+(21, 2, 'WHY GENEXIC?', NULL, 'genexic'),
+(22, 1, 'ПОчему Genexic?', NULL, 'genexic'),
+(23, 2, 'SOLVING HARD TASKS', 'We are always on the client’s side providing best services in all aspects of our cooperation. We use all our experience and market’s best practices to solve your issues, and we do it very well.', 'genexic_desc'),
+(24, 1, 'СОЛВИНГ ХАРД ТАСКС', 'РУWe are always on the client’s side providing best services in all aspects of our cooperation. We use all our experience and market’s best practices to solve your issues, and we do it very well.', 'genexic_desc'),
+(25, 2, 'BEST STAFF FOR YOU', 'We always hire the most skilled staff, provide them ongoing learning in order to give you the best service.', 'genexic_desc'),
+(26, 1, 'Лучшие сотрудники для тебя', 'РУWe always hire the most skilled staff, provide them ongoing learning in order to give you the best service.', 'genexic_desc'),
+(27, 2, 'NO CONCERNS WITH THE STAFF', 'We take care of all the legal concerns with the staff hiring and management, provide them office premises and give you all the required information (CV).', 'genexic_desc'),
+(28, 1, 'НОУ КОНСЕРНС ВИЗ СТАФФ', 'We take care of all the legal concerns with the staff hiring and management, provide them office premises and give you all the required information (CV).', 'genexic_desc'),
+(29, 2, 'Lorem ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(30, 1, 'ЛОРЕМ ИПСУМ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(31, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(32, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(33, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(34, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(35, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(36, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(37, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(38, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more');
 
 -- --------------------------------------------------------
 
@@ -406,6 +533,30 @@ CREATE TABLE `portfolio_to_paragraphs` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `project_types`
+--
+
+CREATE TABLE `project_types` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `services`
 --
 
@@ -450,7 +601,8 @@ CREATE TABLE `service_pages` (
   `footer_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `footer_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `read_more_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -544,6 +696,20 @@ INSERT INTO `working_proccess_services` (`id`, `working_process_id`, `name`, `te
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `about_to_images`
+--
+ALTER TABLE `about_to_images`
+  ADD PRIMARY KEY (`about_us_page_id`,`image_id`),
+  ADD KEY `about_to_images_image_id_foreign` (`image_id`);
+
+--
+-- Индексы таблицы `about_to_paragraphs`
+--
+ALTER TABLE `about_to_paragraphs`
+  ADD PRIMARY KEY (`about_us_page_id`,`paragraph_id`),
+  ADD KEY `about_to_paragraphs_paragraph_id_foreign` (`paragraph_id`);
 
 --
 -- Индексы таблицы `about_us_pages`
@@ -668,6 +834,18 @@ ALTER TABLE `portfolio_to_paragraphs`
   ADD KEY `portfolio_to_paragraphs_paragraph_id_foreign` (`paragraph_id`);
 
 --
+-- Индексы таблицы `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `project_types`
+--
+ALTER TABLE `project_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `services`
 --
 ALTER TABLE `services`
@@ -726,7 +904,7 @@ ALTER TABLE `working_proccess_services`
 -- AUTO_INCREMENT для таблицы `about_us_pages`
 --
 ALTER TABLE `about_us_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `blog_pages`
@@ -756,13 +934,13 @@ ALTER TABLE `home_pages`
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `image_texts`
 --
 ALTER TABLE `image_texts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `langs`
@@ -774,13 +952,13 @@ ALTER TABLE `langs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `paragraphs`
 --
 ALTER TABLE `paragraphs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio_pages`
@@ -792,6 +970,18 @@ ALTER TABLE `portfolio_pages`
 -- AUTO_INCREMENT для таблицы `portfolio_page_details`
 --
 ALTER TABLE `portfolio_page_details`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `project_types`
+--
+ALTER TABLE `project_types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -833,6 +1023,20 @@ ALTER TABLE `working_proccess_services`
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
+
+--
+-- Ограничения внешнего ключа таблицы `about_to_images`
+--
+ALTER TABLE `about_to_images`
+  ADD CONSTRAINT `about_to_images_about_us_page_id_foreign` FOREIGN KEY (`about_us_page_id`) REFERENCES `about_us_pages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `about_to_images_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `about_to_paragraphs`
+--
+ALTER TABLE `about_to_paragraphs`
+  ADD CONSTRAINT `about_to_paragraphs_about_us_page_id_foreign` FOREIGN KEY (`about_us_page_id`) REFERENCES `about_us_pages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `about_to_paragraphs_paragraph_id_foreign` FOREIGN KEY (`paragraph_id`) REFERENCES `paragraphs` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `about_us_pages`

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\AboutUsPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Lang;
 
 class AboutUsController extends Controller
 {
@@ -20,23 +21,24 @@ class AboutUsController extends Controller
         $paragraphs = $about_us_page->paragraphs->where('lang_id', $lang);
         $icons = $about_us_page->icons;
 
-        $about_us = $paragraphs->where('location', 'about_us')->get();
-        $our_mission = $paragraphs->where('location', 'our_mission')->first();
-        $vision = $paragraphs->where('location', 'vision')->first();
+        $main_text = $paragraphs->where('location', 'main');
+        $our_mission = $paragraphs->where('location', 'sub_main');
         $genexic_title = $paragraphs->where('location', 'genexic')->first();
-        $answers_genexic = $paragraphs->where('location', 'genexic_answers')->get();
-        $read_more = $paragraphs->where('location', 'read_more')->get();
+        $genexic_desc = $paragraphs->where('location', 'genexic_desc');
+        $read_more = $paragraphs->where('location', 'read_more');
         $langs = Lang::all();
 
-        $data['icons'] = $icons;
+        $data['icons'] = $icons->where('icon', 1);
         $data['our_mission'] = $our_mission;
-        $data['vision'] = $vision;
+        $data['image'] = $icons->where('icon', 0)->first();
         $data['about_us'] = $about_us_page;
+        $data['main'] = $main_text;
         $data['genexic_title'] = $genexic_title;
-        $data['answers_genexic'] = $answers_genexic;
+        $data['genexic_desc'] = $genexic_desc;
         $data['read_more'] = $read_more;
         $data['lang'] = $lang;
         $data['langs'] = $langs;
+
 
         return view('admin.about-us-page', compact('data'));
     }

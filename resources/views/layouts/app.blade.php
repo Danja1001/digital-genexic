@@ -67,6 +67,10 @@
                                 <a class="dropdown-item" href="{{ route('home-page.index', ['lang' => 2]) }}">
                                     Home
                                 </a>
+
+                                <a class="dropdown-item" href="{{ route('about-us-page.index', ['lang' => 2]) }}">
+                                    About us
+                                </a>
                             </div>
                         </li>
                         @endguest
