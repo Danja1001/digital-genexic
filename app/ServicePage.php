@@ -18,7 +18,7 @@ class ServicePage extends Model
         return $this->hasManyThrough(
             Paragraph::class,
             ServiceToParagraph::class,
-            'service_page_id',
+            'service_id',
             'id',
             'id',
             'paragraph_id'

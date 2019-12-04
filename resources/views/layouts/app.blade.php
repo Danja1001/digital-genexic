@@ -71,6 +71,10 @@
                                 <a class="dropdown-item" href="{{ route('about-us-page.index', ['lang' => 2]) }}">
                                     About us
                                 </a>
+
+                                <a class="dropdown-item" href="{{ route('services-page.index', ['lang' => 2]) }}">
+                                    Services 
+                                </a>
                             </div>
                         </li>
                         @endguest

@@ -40,6 +40,11 @@ Route::group($adminConfig, function () {
     Route::get('about-us-page/{lang}', 'AboutUsController@index')->name('about-us-page.index');
     Route::post('about-us-page/update/{id}', 'AboutUsController@update')->name('about-us-page.update');
 
+    /**
+     * SERVICES PAGE
+     */
+    Route::get('services-page/{lang}', 'ServicesPageController@index')->name('services-page.index');
+    Route::post('services-page/update/{id}', 'ServicesPageController@update')->name('services-page.update');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
