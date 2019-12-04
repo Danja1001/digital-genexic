@@ -51,6 +51,13 @@ Route::group($adminConfig, function () {
      */
     Route::get('services-page/{lang}', 'ServicesPageController@index')->name('services-page.index');
     Route::post('services-page/update/{id}', 'ServicesPageController@update')->name('services-page.update');
+
+    /**
+     * SERVICES
+     */
+    Route::post('services-categories/update/{id}', 'ServiceCategoryController@update')->name('service-categories.update');
+    Route::post('services/update/{id}', 'ServiceController@update')->name('services.update');
+    Route::post('services/store', 'ServiceController@store')->name('services.store');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
