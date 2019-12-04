@@ -45,8 +45,8 @@ class AboutUsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateData = $request->all();
         $about_us_page = AboutUsPage::find($id);
+        $updateData = $request->only($about_us_page->getFillable());
         $about_us_page->update($updateData);
 
         return back()->with('status', 'Successful updated!');

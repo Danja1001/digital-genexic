@@ -41,6 +41,12 @@ Route::group($adminConfig, function () {
     Route::post('about-us-page/update/{id}', 'AboutUsController@update')->name('about-us-page.update');
 
     /**
+     * CONTACT US PAGE
+     */
+    Route::get('contact-us-page/{lang}', 'ContactUsController@index')->name('contact-us-page.index');
+    Route::post('contact-us-page/update/{id}', 'ContactUsController@update')->name('contact-us-page.update');
+
+    /**
      * SERVICES PAGE
      */
     Route::get('services-page/{lang}', 'ServicesPageController@index')->name('services-page.index');
