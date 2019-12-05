@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 05 2019 г., 00:19
--- Версия сервера: 5.7.20
--- Версия PHP: 7.2.0
+-- Время создания: Дек 05 2019 г., 20:15
+-- Версия сервера: 5.6.38
+-- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `digital-genexic`
+-- База данных: `digital-db`
 --
 
 -- --------------------------------------------------------
@@ -154,6 +154,35 @@ CREATE TABLE `blog_page_details` (
   `id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `blog_projects`
+--
+
+CREATE TABLE `blog_projects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `lang_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keep_reading` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `blog_project_to_images`
+--
+
+CREATE TABLE `blog_project_to_images` (
+  `blog_project_id` int(10) UNSIGNED NOT NULL,
+  `image_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -424,7 +453,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (34, '2019_12_02_101336_update_about_us_page_add_read_more_title', 6),
 (35, '2019_12_02_102147_update_services_page_add_read_more_title', 6),
 (36, '2019_12_04_091342_update_service_to_paragraphs', 7),
-(37, '2019_12_04_210914_update_portfolio_pages_table_add_read_more_btn', 8);
+(37, '2019_12_04_210914_update_portfolio_pages_table_add_read_more_btn', 8),
+(38, '', 9),
+(39, '', 10),
+(40, 'a', 11),
+(41, '2019_12_05_164802_create_portfiolio_projects_tablea', 12),
+(42, '2019_12_05_164802_create_portfiolio_projects_table', 13),
+(43, '2019_12_05_164937_create_portfiolio_project_to_images_table', 13),
+(44, '2019_12_05_164948_create_blog_projects_table', 13),
+(45, '2019_12_05_164957_create_blog_project_to_images_table', 13),
+(46, '2019_12_05_165003_delete_tables', 13),
+(47, '2019_12_05_171114_create_portfolio_project_to_paragraphs_table', 14);
 
 -- --------------------------------------------------------
 
@@ -548,12 +587,41 @@ CREATE TABLE `portfolio_page_details` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `portfolio_to_images`
+-- Структура таблицы `portfolio_projects`
 --
 
-CREATE TABLE `portfolio_to_images` (
-  `portfolio_page_id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `portfolio_projects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `lang_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `portfolio_project_to_images`
+--
+
+CREATE TABLE `portfolio_project_to_images` (
+  `port_proj_id` int(10) UNSIGNED NOT NULL,
   `image_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `portfolio_project_to_paragraphs`
+--
+
+CREATE TABLE `portfolio_project_to_paragraphs` (
+  `pproj_id` int(10) UNSIGNED NOT NULL,
+  `paragraph_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -565,30 +633,6 @@ CREATE TABLE `portfolio_to_images` (
 CREATE TABLE `portfolio_to_paragraphs` (
   `portfolio_page_id` int(10) UNSIGNED NOT NULL,
   `paragraph_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `projects`
---
-
-CREATE TABLE `projects` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `project_types`
---
-
-CREATE TABLE `project_types` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -818,6 +862,20 @@ ALTER TABLE `blog_page_details`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `blog_projects`
+--
+ALTER TABLE `blog_projects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `blog_projects_lang_id_foreign` (`lang_id`);
+
+--
+-- Индексы таблицы `blog_project_to_images`
+--
+ALTER TABLE `blog_project_to_images`
+  ADD PRIMARY KEY (`blog_project_id`,`image_id`),
+  ADD KEY `blog_project_to_images_image_id_foreign` (`image_id`);
+
+--
 -- Индексы таблицы `blog_to_images`
 --
 ALTER TABLE `blog_to_images`
@@ -906,11 +964,25 @@ ALTER TABLE `portfolio_page_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `portfolio_to_images`
+-- Индексы таблицы `portfolio_projects`
 --
-ALTER TABLE `portfolio_to_images`
-  ADD PRIMARY KEY (`portfolio_page_id`,`image_id`),
-  ADD KEY `portfolio_to_images_image_id_foreign` (`image_id`);
+ALTER TABLE `portfolio_projects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `portfolio_projects_lang_id_foreign` (`lang_id`);
+
+--
+-- Индексы таблицы `portfolio_project_to_images`
+--
+ALTER TABLE `portfolio_project_to_images`
+  ADD PRIMARY KEY (`port_proj_id`,`image_id`),
+  ADD KEY `portfolio_project_to_images_image_id_foreign` (`image_id`);
+
+--
+-- Индексы таблицы `portfolio_project_to_paragraphs`
+--
+ALTER TABLE `portfolio_project_to_paragraphs`
+  ADD PRIMARY KEY (`pproj_id`,`paragraph_id`),
+  ADD KEY `portfolio_project_to_paragraphs_paragraph_id_foreign` (`paragraph_id`);
 
 --
 -- Индексы таблицы `portfolio_to_paragraphs`
@@ -918,18 +990,6 @@ ALTER TABLE `portfolio_to_images`
 ALTER TABLE `portfolio_to_paragraphs`
   ADD PRIMARY KEY (`portfolio_page_id`,`paragraph_id`),
   ADD KEY `portfolio_to_paragraphs_paragraph_id_foreign` (`paragraph_id`);
-
---
--- Индексы таблицы `projects`
---
-ALTER TABLE `projects`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `project_types`
---
-ALTER TABLE `project_types`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `services`
@@ -1005,6 +1065,12 @@ ALTER TABLE `blog_page_details`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT для таблицы `blog_projects`
+--
+ALTER TABLE `blog_projects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `contact_pages`
 --
 ALTER TABLE `contact_pages`
@@ -1038,7 +1104,7 @@ ALTER TABLE `langs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT для таблицы `paragraphs`
@@ -1059,15 +1125,9 @@ ALTER TABLE `portfolio_page_details`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `projects`
+-- AUTO_INCREMENT для таблицы `portfolio_projects`
 --
-ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `project_types`
---
-ALTER TABLE `project_types`
+ALTER TABLE `portfolio_projects`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1137,6 +1197,19 @@ ALTER TABLE `blog_pages`
   ADD CONSTRAINT `blog_pages_lang_id_foreign` FOREIGN KEY (`lang_id`) REFERENCES `langs` (`id`) ON DELETE CASCADE;
 
 --
+-- Ограничения внешнего ключа таблицы `blog_projects`
+--
+ALTER TABLE `blog_projects`
+  ADD CONSTRAINT `blog_projects_lang_id_foreign` FOREIGN KEY (`lang_id`) REFERENCES `langs` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `blog_project_to_images`
+--
+ALTER TABLE `blog_project_to_images`
+  ADD CONSTRAINT `blog_project_to_images_blog_project_id_foreign` FOREIGN KEY (`blog_project_id`) REFERENCES `blog_projects` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `blog_project_to_images_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE;
+
+--
 -- Ограничения внешнего ключа таблицы `blog_to_images`
 --
 ALTER TABLE `blog_to_images`
@@ -1189,11 +1262,24 @@ ALTER TABLE `portfolio_pages`
   ADD CONSTRAINT `portfolio_pages_lang_id_foreign` FOREIGN KEY (`lang_id`) REFERENCES `langs` (`id`) ON DELETE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `portfolio_to_images`
+-- Ограничения внешнего ключа таблицы `portfolio_projects`
 --
-ALTER TABLE `portfolio_to_images`
-  ADD CONSTRAINT `portfolio_to_images_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `portfolio_to_images_portfolio_page_id_foreign` FOREIGN KEY (`portfolio_page_id`) REFERENCES `portfolio_pages` (`id`) ON DELETE CASCADE;
+ALTER TABLE `portfolio_projects`
+  ADD CONSTRAINT `portfolio_projects_lang_id_foreign` FOREIGN KEY (`lang_id`) REFERENCES `langs` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `portfolio_project_to_images`
+--
+ALTER TABLE `portfolio_project_to_images`
+  ADD CONSTRAINT `portfolio_project_to_images_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `portfolio_project_to_images_port_proj_id_foreign` FOREIGN KEY (`port_proj_id`) REFERENCES `portfolio_projects` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `portfolio_project_to_paragraphs`
+--
+ALTER TABLE `portfolio_project_to_paragraphs`
+  ADD CONSTRAINT `portfolio_project_to_paragraphs_paragraph_id_foreign` FOREIGN KEY (`paragraph_id`) REFERENCES `paragraphs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `portfolio_project_to_paragraphs_pproj_id_foreign` FOREIGN KEY (`pproj_id`) REFERENCES `portfolio_projects` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `portfolio_to_paragraphs`
