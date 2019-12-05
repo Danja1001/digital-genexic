@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 05 2019 г., 20:15
--- Версия сервера: 5.6.38
--- Версия PHP: 7.3.2
+-- Время создания: Дек 06 2019 г., 00:09
+-- Версия сервера: 5.7.20
+-- Версия PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `digital-db`
+-- База данных: `digital-genexic`
 --
 
 -- --------------------------------------------------------
@@ -141,8 +141,8 @@ CREATE TABLE `blog_pages` (
 --
 
 INSERT INTO `blog_pages` (`id`, `lang_id`, `title`, `search_btn_placeholder`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
-(1, 2, 'OUR BLOG', 'What\'s find?', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL),
-(2, 1, 'НАШ БЛОГ', '#ШО НАШЛИ?', 'LET’S START A NEW PROJECT TOGETHER!', 'ГЕТ ИН ТАЧ', NULL, NULL);
+(1, 2, 'OUR BLOG!', 'What\'s find?!', 'LET’S START A NEW PROJECT TOGETHER!!', 'GET IN TOUCH!', NULL, '2019-12-05 19:08:32'),
+(2, 1, 'НАШ БЛОГ!', '#ШО НАШЛИ?!', 'LET’S START A NEW PROJECT TOGETHER!!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 19:08:48');
 
 -- --------------------------------------------------------
 
@@ -171,8 +171,17 @@ CREATE TABLE `blog_projects` (
   `footer_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `footer_btn_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `subtitle` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `blog_projects`
+--
+
+INSERT INTO `blog_projects` (`id`, `lang_id`, `title`, `subtitle_text`, `keep_reading`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`, `subtitle`) VALUES
+(1, 2, 'OUR BLOG', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'KEEP READING', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™'),
+(2, 1, 'НАЩШ БЛОГ', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™');
 
 -- --------------------------------------------------------
 
@@ -463,7 +472,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (44, '2019_12_05_164948_create_blog_projects_table', 13),
 (45, '2019_12_05_164957_create_blog_project_to_images_table', 13),
 (46, '2019_12_05_165003_delete_tables', 13),
-(47, '2019_12_05_171114_create_portfolio_project_to_paragraphs_table', 14);
+(47, '2019_12_05_171114_create_portfolio_project_to_paragraphs_table', 14),
+(48, '2019_12_05_195948_update_blog_projects_table_add_subtitle', 15);
 
 -- --------------------------------------------------------
 
@@ -531,7 +541,27 @@ INSERT INTO `paragraphs` (`id`, `lang_id`, `title`, `text`, `location`) VALUES
 (45, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
 (46, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
 (47, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
-(48, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more');
+(48, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(49, 2, 'CATEGORY', 'FRONT-END, WORDPRESS', 'project_category'),
+(50, 1, 'Категория', 'Фронт-енд', 'project_category'),
+(51, 2, 'DATE', 'JUNE 2017', 'project_date'),
+(52, 1, 'ДАТА', 'ИЮНЬ 2018', 'project_date'),
+(53, 2, 'CLIENT', 'MASTER PODELKIN', 'project_client'),
+(54, 1, 'КЛИЕНТ', 'МАССТЕР ПОДЕЛКИН', 'project_client'),
+(55, 2, 'HOURS', '128', 'project_hours'),
+(56, 1, 'ЧАСЫ', '128', 'project_hours'),
+(57, 2, 'Lorem ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(58, 1, 'Лорем Ипсум', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(59, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(60, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(61, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(62, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(63, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(64, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(65, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(66, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(67, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(68, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more');
 
 -- --------------------------------------------------------
 
@@ -569,8 +599,8 @@ CREATE TABLE `portfolio_pages` (
 --
 
 INSERT INTO `portfolio_pages` (`id`, `lang_id`, `title`, `subtitle`, `subtitle_text`, `footer_title`, `footer_btn_text`, `created_at`, `updated_at`, `read_more_btn`) VALUES
-(1, 2, 'YOUR MOST AUDATI0US VISION', 'LET US AT IT', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'Read More'),
-(2, 1, 'Ю МАСТ ... ВИЗИОН', 'ЛЕТ УС ЕС ИТ', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'Читать больше');
+(1, 2, 'YOUR MOST AUDATI0US VISION!', 'LET US AT IT!', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH!', NULL, '2019-12-05 18:35:43', 'Read More!'),
+(2, 1, 'Ю МАСТ ... ВИЗИОН!', 'ЛЕТ УС ЕС ИТ!', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 18:36:04', 'Читать больше!');
 
 -- --------------------------------------------------------
 
@@ -602,6 +632,14 @@ CREATE TABLE `portfolio_projects` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `portfolio_projects`
+--
+
+INSERT INTO `portfolio_projects` (`id`, `lang_id`, `title`, `subtitle`, `name`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
+(1, 2, 'YOUR MOST AUDATI0US VISION', 'LET US AT IT', 'R-CONNECT', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL),
+(2, 1, 'YOUR MOST AUDATI0US VISION', 'лЕТ УС ЕТ ИТ', 'Р-КОННЕКТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ', 'ГЕТ ИН ТАЧ', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -624,6 +662,20 @@ CREATE TABLE `portfolio_project_to_paragraphs` (
   `paragraph_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `portfolio_project_to_paragraphs`
+--
+
+INSERT INTO `portfolio_project_to_paragraphs` (`pproj_id`, `paragraph_id`) VALUES
+(1, 49),
+(2, 50),
+(1, 51),
+(2, 52),
+(1, 53),
+(2, 54),
+(1, 55),
+(2, 56);
+
 -- --------------------------------------------------------
 
 --
@@ -634,6 +686,24 @@ CREATE TABLE `portfolio_to_paragraphs` (
   `portfolio_page_id` int(10) UNSIGNED NOT NULL,
   `paragraph_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `portfolio_to_paragraphs`
+--
+
+INSERT INTO `portfolio_to_paragraphs` (`portfolio_page_id`, `paragraph_id`) VALUES
+(1, 57),
+(2, 58),
+(1, 59),
+(2, 60),
+(1, 61),
+(2, 62),
+(1, 63),
+(2, 64),
+(1, 65),
+(2, 66),
+(1, 67),
+(2, 68);
 
 -- --------------------------------------------------------
 
@@ -1068,7 +1138,7 @@ ALTER TABLE `blog_page_details`
 -- AUTO_INCREMENT для таблицы `blog_projects`
 --
 ALTER TABLE `blog_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `contact_pages`
@@ -1104,13 +1174,13 @@ ALTER TABLE `langs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT для таблицы `paragraphs`
 --
 ALTER TABLE `paragraphs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio_pages`
@@ -1128,7 +1198,7 @@ ALTER TABLE `portfolio_page_details`
 -- AUTO_INCREMENT для таблицы `portfolio_projects`
 --
 ALTER TABLE `portfolio_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
