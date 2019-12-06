@@ -80,7 +80,7 @@
                                     Portfolio
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('portfolio-detail-page.index', ['lang' => 2]) }}">
+                                <a class="dropdown-item" href="{{ route('portfolio-project-list.index', ['lang' => 2]) }}">
                                     Portfolio detail
                                 </a>
 
@@ -88,7 +88,7 @@
                                     Blog
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('blog-detail-page.index', ['lang' => 2]) }}">
+                                <a class="dropdown-item" href="{{ route('blog-project-list.index', ['lang' => 2]) }}">
                                     Blog detail
                                 </a>
 

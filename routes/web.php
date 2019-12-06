@@ -68,7 +68,8 @@ Route::group($adminConfig, function () {
     /**
      * PORTFOLIO DETAIL PAGE
      */
-    Route::get('portfolio-detail-page/{lang}', 'PortfolioDetailController@index')->name('portfolio-detail-page.index');
+    Route::get('portfolio-project/list/{lang}', 'PortfolioDetailController@list')->name('portfolio-project-list.index');
+    Route::get('portfolio-detail-page/{lang}/{project_id}', 'PortfolioDetailController@index')->name('portfolio-detail-page.index');
     Route::post('portfolio-detail-page/update/{id}', 'PortfolioDetailController@update')->name('portfolio-detail-page.update');
     Route::post('portfolio-detial-page/store', 'PortfolioDetailController@store')->name('portfolio-detail-page.store');
 
@@ -81,7 +82,8 @@ Route::group($adminConfig, function () {
     /**
      * BLOG DETAIL PAGE
      */
-    Route::get('blog-detail-page/{lang}', 'BlogDetailController@index')->name('blog-detail-page.index');
+    Route::get('blog-project/list/{lang}', 'BlogDetailController@list')->name('blog-project-list.index');
+    Route::get('blog-detail-page/{lang}/{project_id}', 'BlogDetailController@index')->name('blog-detail-page.index');
     Route::post('blog-detail-page/update/{id}', 'BlogDetailController@update')->name('blog-detail-page.update');
     Route::post('blog-detial-page/store', 'BlogDetailController@store')->name('blog-detail-page.store');
 });
