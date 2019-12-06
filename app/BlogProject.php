@@ -24,4 +24,16 @@ class BlogProject extends Model
             'image_id'
         );
     }
+
+    public function paragraphs()
+    {
+        return $this->hasManyThrough(
+            Paragraph::class,
+            BlogProjectToParagraph::class,
+            'blog_proj_id',
+            'id',
+            'id',
+            'paragraph_id'
+        );
+    }
 }

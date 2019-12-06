@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 06 2019 г., 00:09
--- Версия сервера: 5.7.20
--- Версия PHP: 7.2.0
+-- Время создания: Дек 06 2019 г., 20:33
+-- Версия сервера: 5.6.38
+-- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `digital-genexic`
+-- База данных: `digital-db`
 --
 
 -- --------------------------------------------------------
@@ -192,6 +192,17 @@ INSERT INTO `blog_projects` (`id`, `lang_id`, `title`, `subtitle_text`, `keep_re
 CREATE TABLE `blog_project_to_images` (
   `blog_project_id` int(10) UNSIGNED NOT NULL,
   `image_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `blog_project_to_paragraphs`
+--
+
+CREATE TABLE `blog_project_to_paragraphs` (
+  `blog_proj_id` int(10) UNSIGNED NOT NULL,
+  `paragraph_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -473,7 +484,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (45, '2019_12_05_164957_create_blog_project_to_images_table', 13),
 (46, '2019_12_05_165003_delete_tables', 13),
 (47, '2019_12_05_171114_create_portfolio_project_to_paragraphs_table', 14),
-(48, '2019_12_05_195948_update_blog_projects_table_add_subtitle', 15);
+(48, '2019_12_05_195948_update_blog_projects_table_add_subtitle', 15),
+(49, '2019_12_06_172539_create_blog_project_to_paragraphs_table', 16);
 
 -- --------------------------------------------------------
 
@@ -946,6 +958,13 @@ ALTER TABLE `blog_project_to_images`
   ADD KEY `blog_project_to_images_image_id_foreign` (`image_id`);
 
 --
+-- Индексы таблицы `blog_project_to_paragraphs`
+--
+ALTER TABLE `blog_project_to_paragraphs`
+  ADD PRIMARY KEY (`blog_proj_id`,`paragraph_id`),
+  ADD KEY `blog_project_to_paragraphs_paragraph_id_foreign` (`paragraph_id`);
+
+--
 -- Индексы таблицы `blog_to_images`
 --
 ALTER TABLE `blog_to_images`
@@ -1174,7 +1193,7 @@ ALTER TABLE `langs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT для таблицы `paragraphs`
@@ -1278,6 +1297,13 @@ ALTER TABLE `blog_projects`
 ALTER TABLE `blog_project_to_images`
   ADD CONSTRAINT `blog_project_to_images_blog_project_id_foreign` FOREIGN KEY (`blog_project_id`) REFERENCES `blog_projects` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `blog_project_to_images_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `blog_project_to_paragraphs`
+--
+ALTER TABLE `blog_project_to_paragraphs`
+  ADD CONSTRAINT `blog_project_to_paragraphs_blog_proj_id_foreign` FOREIGN KEY (`blog_proj_id`) REFERENCES `blog_projects` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `blog_project_to_paragraphs_paragraph_id_foreign` FOREIGN KEY (`paragraph_id`) REFERENCES `paragraphs` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `blog_to_images`
