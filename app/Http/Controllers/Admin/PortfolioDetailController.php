@@ -9,6 +9,7 @@ use App\Lang;
 use App\Image;
 use Illuminate\Support\Facades\Storage;
 use App\ImageText;
+use App\Paragraph;
 use Illuminate\Support\Facades\DB;
 
 class PortfolioDetailController extends Controller
@@ -57,28 +58,45 @@ class PortfolioDetailController extends Controller
 
     public function store(Request $request)
     {
-        $image = new Image;
-        if ($request->hasFile('image')) {
-            $image->image = Storage::disk('public')->put('home', $request->image);
-
-            $image->save();
-        }
-
+        $request_data = $request->all();
         $portfolio_detail_page = new PortfolioProject;
         $create_data = $request->only($portfolio_detail_page->getFillable());
         $portfolio_detail_page->fill($create_data);
         $portfolio_detail_page->save();
 
+        $paragraphs = $request->get('paragraphs');
+        $images = $request->get('images');
+
+        foreach ($paragraphs as $paragraphs_data) {
+            $paragraph = new Paragraph;
+            $paragraph->lang_id = $request->get('lang_id');
+            $paragraph->title = $paragraphs_data['title'];
+            $paragraph->text = $paragraphs_data['text'];
+            $paragraph->location = $paragraphs_data['location'];
+            $paragraph->save();
+
+            DB::table('portfolio_project_to_paragraphs')->insert([
+                'pproj_id' => $portfolio_detail_page->id,
+                'paragraph_id' => $paragraph->id
+            ]);
+        }
+
+        $image = new Image;
+        $image->image = Storage::disk('public')->put('home', $request_data['images']['first']);
+        $image->save();
+
         DB::table('portfolio_project_to_images')->insert([
-            'blog_project_id' => $portfolio_detail_page->id,
+            'port_proj_id' => $portfolio_detail_page->id,
             'image_id' => $image->id
         ]);
 
-        ImageText::create([
-            'image_id' => $image->id,
-            'lang_id' => $request->get('lang_id'),
-            'title' => $request->get('image_title'),
-            'text' => $request->get('image_text')
+        $image = new Image;
+        $image->image = Storage::disk('public')->put('home', $request_data['images']['second']);
+        $image->save();
+
+        DB::table('portfolio_project_to_images')->insert([
+            'port_proj_id' => $portfolio_detail_page->id,
+            'image_id' => $image->id
         ]);
 
         return back()->with('status', 'Successful stored.');

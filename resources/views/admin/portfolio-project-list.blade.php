@@ -22,12 +22,12 @@
                             <input name="title" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Subtitle text</label>
-                            <textarea name="subtitle_text" class="form-control" required></textarea>
+                            <label>Subtitle</label>
+                            <textarea name="subtitle" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Kepp reading</label>
-                            <input name="keep_reading" class="form-control" required>
+                            <label>Name</label>
+                            <input name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Footer title</label>
@@ -37,19 +37,67 @@
                             <label>Footer btn title</label>
                             <input name="footer_btn_title" class="form-control" required>
                         </div>
+
+                        <h1>Project date </h1>
                         <div class="form-group">
-                            <input type="file" name="image" class="form-control" required>
+                            <label>Title</label>
+                            <input name="paragraphs[project_date][title]" class="form-control" required />
+                            <input type="hidden" name="paragraphs[project_date][location]" value="project_date" />
                         </div>
                         <div class="form-group">
-                            <label>Image title</label>
-                            <input name="image_title" class="form-control" required>
+                            <label>Text</label>
+                            <textarea name="paragraphs[project_date][text]" class="form-control" required></textarea>
+                        </div>
+
+                        <h1>Project Category </h1>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input name="paragraphs[project_category][title]" class="form-control" required />
+                            <input type="hidden" name="paragraphs[project_category][location]" value="project_category" />
                         </div>
                         <div class="form-group">
-                            <label>Image text</label>
-                            <textarea name="image_text" class="form-control"></textarea>
+                            <label>Text</label>
+                            <textarea name="paragraphs[project_category][text]" class="form-control" required></textarea>
                         </div>
-                        <button class="btn btn-primary">Store</button>
+
+                        <h1>Project Client </h1>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input name="paragraphs[project_client][title]" class="form-control" required />
+                            <input type="hidden" name="paragraphs[project_client][location]" value="project_client" />
+                        </div>
+                        <div class="form-group">
+                            <label>Text</label>
+                            <textarea name="paragraphs[project_client][text]" class="form-control" required></textarea>
+                        </div>
+
+                        <h1>Project hours</h1>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input name="paragraphs[project_hours][title]" class="form-control" required />
+                            <input type="hidden" name="paragraphs[project_hours][location]" value="project_hours" />
+                        </div>
+                        <div class="form-group">
+                            <label>Text</label>
+                            <textarea name="paragraphs[project_hours][text]" class="form-control" required></textarea>
+                        </div>
+
+                        <h1>Images</h1>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="file" name="images[first]" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="file" name="images[second]" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-success">Update</button>
                     </form>
+                    <br />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
