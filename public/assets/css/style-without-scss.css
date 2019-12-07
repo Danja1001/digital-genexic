@@ -1,0 +1,35 @@
+.background-wrap .contact-us-card .our-contact-form::before {
+	color: rgba(255, 235, 59, 0.3);
+}
+.background-wrap .contact-us-card .our-contacts::before {
+	color: rgba(167, 167, 167, 0.26);
+}
+#modal_form .header-logo a {
+	color: rgba(255, 255, 255, 0.45);
+	text-decoration: none;
+}
+#modal_form .header-logo a:after {
+	bottom: 32px;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.button-footer .mas, #modal_form .mas {
+		display: none !important;
+	}
+	#modal_form .row .in-touch-form form input:-ms-input-placeholder {
+		color: #ccc !important;
+		font-weight: 400 !important;
+	}
+	#modal_form .row .in-touch-form form {
+		display: block;
+	}
+	#modal_form .row .in-touch-form form input {
+		display: block;
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
+		line-height: 0;
+		border-bottom: 1px solid;
+		border-bottom-color: rgba(255, 255, 255, 0.76);
+	}
+	
+}
