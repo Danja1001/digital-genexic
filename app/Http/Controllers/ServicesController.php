@@ -21,12 +21,13 @@ class ServicesController extends Controller
         $langs = Lang::all();
 
 
+        $data['title'] = preg_split('//u', $services_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['service_categories'] = $service_categories;
         $data['read_more'] = $read_more;
         $data['services_page'] = $services_page;
         $data['lang'] = $lang;
         $data['langs'] = $langs;
 
-        return view('pages.services-page', compact('data'));
+        return view('pages.services', compact('data'));
     }
 }

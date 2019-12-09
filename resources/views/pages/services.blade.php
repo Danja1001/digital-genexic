@@ -11,30 +11,30 @@
             </a>
             <nav class="mobile-nav-wrap">
                 <ul class="mobile-header-nav">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="o_nas.html">about us</a></li>
-                    <li><a href="services.html">services</a></li>
-                    <li><a href="portfolio.html">portfolio</a></li>
-                    <li><a href="blog.html">blog</a></li>
-                    <li><a href="contacts.html">contact us</a></li>
+                    <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
+                    <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
+                    <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
+                    <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
+                    <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
+                    <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
                 </ul>
             </nav>
         </div>
         <div class="row padding-top-header">
             <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
                 <div class="header-logo">
-                    <a href="index.html"><img src="img/Logo.svg" alt="#"></a>
+                    <a href="index.html"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
                 </div>
             </div>
             <div class="col-lg-6 col-lg-push-1 col-md-7 col-md-push-1 col-sm-8 col-sm-push-1 col-xs-8 nav-media">
                 <div class="header-nav wow flipInX">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="o_nas.html">about us</a></li>
-                        <li><a href="services.html">services</a></li>
-                        <li><a href="portfolio.html">portfolio</a></li>
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="contacts.html">contact us</a></li>
+                        <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
+                        <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
+                        <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
+                        <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
+                        <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
+                        <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,20 +42,9 @@
         <div class="row header-section-two">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 services-header">
                 <ul class="fly-in hidden">
-                    <li>O</li>
-                    <li>u</li>
-                    <li>r</li>
-                    <li>s</li>
-                    <li>t</li>
-                    <li>u</li>
-                    <li>d</li>
-                    <li>i</li>
-                    <li>o</li>
-                    <li>o</li>
-                    <li>f</li>
-                    <li>f</li>
-                    <li>e</li>
-                    <li>r</li>
+                    @foreach($data['title'] as $t)
+                    <li>{{ $t }}</li>
+                    @endforeach
                 </ul>
             </div>
             <div class="block-social">
@@ -73,7 +62,7 @@
     <div class="row">
         <div class=" col-lg-12 header-logo">
             <span id="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span>
-            <a href="#"><img src="img/Logo.svg" alt="#"></a>
+            <a href="#"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
         </div>
     </div>
     <div class="row">
@@ -101,33 +90,31 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services-block-one exception">
                     <div class="design">
-                        <p>design</p>
+                        <p> {{ $data['service_categories'][0]->title }}</p>
                         <ul>
-                            <li><a href="services-details.html">web-desing</a></li>
-                            <li><a href="services-details.html">poligraphic design</a></li>
-                            <li><a href="services-details.html">3d-design</a></li>
-                            <li><a href="services-details.html">visual identity</a></li>
+                            @foreach($data['service_categories'][0]->services as $service)
+                            <li><a href="{{ route('service.index', ['service_id' => $service->id, 'lang_id' => $data['lang']]) }}">{{ $service->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services-block-two">
                     <div class="development">
-                        <p>development</p>
+                        <p> {{ $data['service_categories'][1]->title }}</p>
                         <ul>
-                            <li><a href="services-details.html">corporate site</a></li>
-                            <li><a href="services-details.html">landing page</a></li>
-                            <li><a href="services-details.html">e-commers</a></li>
+                            @foreach($data['service_categories'][1]->services as $service)
+                            <li><a href="{{ route('service.index', ['service_id' => $service->id, 'lang_id' => $data['lang']]) }}">{{ $service->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services-block-one">
                     <div class="promotion">
-                        <p>promotion</p>
+                        <p> {{ $data['service_categories'][2]->title }}</p>
                         <ul>
-                            <li><a href="services-details.html">seo</a></li>
-                            <li><a href="services-details.html">google</a></li>
-                            <li><a href="services-details.html">yandex</a></li>
-                            <li><a href="services-details.html">targeting</a></li>
+                            @foreach($data['service_categories'][2]->services as $service)
+                            <li><a href="{{ route('service.index', ['service_id' => $service->id, 'lang_id' => $data['lang']]) }}">{{ $service->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -136,19 +123,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="button-look">
-                    <p><button id="buttonOpen"><span>Read more</span></button></p>
+                    <p><button id="buttonOpen"><span>{{ $data['services_page']->read_more_btn_title }}</span></button></p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="more-content">
-                    <h1>Lorem ipsum</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    @foreach($data['read_more'] as $p)
+                    <h1>{{ $p->title }}</h1>
+                    <p>{{ $p->text }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -161,10 +146,10 @@
     <div class="container-fluid services-footer">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <p class="wow flipInX">LET’S START A NEW PROJECT TOGETHER</p>
+                <p class="wow flipInX">{{ $data['services_page']->footer_title }}</p>
                 <div class="button-container-1 button-footer wow swing">
-                    <span class="mas">Get in touch</span>
-                    <button id='go2' type="button" name="Hover">Get in touch</button>
+                    <span class="mas">{{ $data['services_page']->footer_btn_title }}</span>
+                    <button id='go2' type="button" name="Hover">{{ $data['services_page']->footer_btn_title }}</button>
                 </div>
                 <ul>
                     <li><a href="#"><i class="fab fa-telegram"></i></a></li>

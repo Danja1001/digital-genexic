@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 06 2019 г., 20:33
--- Версия сервера: 5.6.38
--- Версия PHP: 7.3.2
+-- Время создания: Дек 10 2019 г., 00:00
+-- Версия сервера: 5.7.20
+-- Версия PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `digital-db`
+-- База данных: `digital-genexic`
 --
 
 -- --------------------------------------------------------
@@ -181,7 +181,9 @@ CREATE TABLE `blog_projects` (
 
 INSERT INTO `blog_projects` (`id`, `lang_id`, `title`, `subtitle_text`, `keep_reading`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`, `subtitle`) VALUES
 (1, 2, 'OUR BLOG', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'KEEP READING', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™'),
-(2, 1, 'НАЩШ БЛОГ', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™');
+(2, 1, 'НАЩШ БЛОГ', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™'),
+(6, 2, 'Test123', 'Test123Test123\r\nTest123Test123', 'Kepp reading', 'LET’S START A NEW PROJECT TOGETHER!!', 'GET IN TOUCH!!!!!!@@23', '2019-12-06 18:45:45', '2019-12-06 18:45:45', NULL),
+(7, 1, 'Тест123', 'Тест123Тест123\r\nТест123Тест123', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', '2019-12-06 18:46:39', '2019-12-06 18:46:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,6 +195,16 @@ CREATE TABLE `blog_project_to_images` (
   `blog_project_id` int(10) UNSIGNED NOT NULL,
   `image_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `blog_project_to_images`
+--
+
+INSERT INTO `blog_project_to_images` (`blog_project_id`, `image_id`) VALUES
+(1, 11),
+(2, 11),
+(6, 14),
+(7, 15);
 
 -- --------------------------------------------------------
 
@@ -358,7 +370,17 @@ INSERT INTO `images` (`id`, `image`, `icon`, `created_at`, `updated_at`) VALUES
 (7, 'home/q41lALXmWjaPpJ9hLgrzMgwis3HJ38WT17F0QnNh.png', 0, NULL, '2019-12-03 19:04:05'),
 (8, 'home/rXIVrrl4jmqKMF5JYkOhdXKvzHIRTqKWASu5xwPw.png', 1, NULL, '2019-12-03 19:05:09'),
 (9, 'home/UYMUpYU9uxYmEGzSW17b6j7RZHQKcBJeqG0NaKjo.png', 1, NULL, '2019-12-03 19:05:20'),
-(10, 'home/wZGUq48tviBsPjQWCJCSqisqEVY31WkhrEvvoXV6.png', 1, NULL, '2019-12-03 19:05:30');
+(10, 'home/wZGUq48tviBsPjQWCJCSqisqEVY31WkhrEvvoXV6.png', 1, NULL, '2019-12-03 19:05:30'),
+(11, 'home/m89juCekUkdrfqaDE12tXdvIHRQzaynFQgsi9Mqo.png', 0, NULL, '2019-12-06 17:44:46'),
+(12, 'home/I1rfotsy6LJJCWfPtmtCssRDGV7uRojhPY8n3s3a.png', 0, '2019-12-06 18:34:35', '2019-12-06 18:34:35'),
+(13, 'home/eYsTIIyskDG2K3aHnaSFuOaa0ftaSzLyxw0hrlCc.png', 0, '2019-12-06 18:44:46', '2019-12-06 18:44:46'),
+(14, 'home/rEiBk1L8PcSGrzo69fcs7k6R4qPEr2T0yRo4Eh7u.png', 0, '2019-12-06 18:45:45', '2019-12-06 18:45:45'),
+(15, 'home/zjlR6s3WSrhU331706rCCjVDejR1CGuXVUGWfw5M.png', 0, '2019-12-06 18:46:39', '2019-12-06 18:46:39'),
+(16, 'home/VxuxXWAm41iV0ooy3jkpaiEKw2ztl5CDDV23jXls.png', 0, NULL, '2019-12-06 20:27:46'),
+(17, 'home/zWOJV3W44uGxEMTX4tHZiNY43hnMZYSr0P12LzYM.png', 0, NULL, '2019-12-06 20:27:25'),
+(18, 'home/dsz25GsKZ8ASdBhwyfB03bvbmoyi2rVh5Br3oNxt.png', 0, '2019-12-07 13:34:15', '2019-12-07 13:34:15'),
+(19, 'home/8pZdV37wiT8BpyNeqiCCSC5CXj0UbY7mDXD2itzn.png', 0, '2019-12-07 13:35:06', '2019-12-07 13:35:06'),
+(20, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, '2019-12-07 13:35:06', '2019-12-07 13:35:06');
 
 -- --------------------------------------------------------
 
@@ -393,12 +415,16 @@ INSERT INTO `image_texts` (`id`, `image_id`, `lang_id`, `title`, `text`, `create
 (10, 2, 1, 'фыаыфвфыв', NULL, NULL, NULL),
 (11, 3, 2, 'adsasdadssadaszxc', NULL, NULL, NULL),
 (12, 3, 1, 'фывяяяывфывф', NULL, NULL, NULL),
-(13, 8, 2, '18 +', 'PROFESSIONALS', NULL, NULL),
-(14, 8, 1, '18 +', 'ПРОФИ', NULL, NULL),
-(15, 9, 2, '55 +', 'HAPPY CLIENTS', NULL, NULL),
-(16, 9, 1, '55 +', 'СЧАСТЛИВЫЕ КЛИЕНТЫ', NULL, NULL),
-(17, 10, 2, '63 +', 'DELIVERED PROJECTS', NULL, NULL),
-(18, 10, 1, '63 +', 'ЗАВЕРШЕННЫЕ ПРОЕТКЫ', NULL, NULL);
+(13, 8, 2, '18', 'PROFESSIONALS', NULL, NULL),
+(14, 8, 1, '18', 'ПРОФИ', NULL, NULL),
+(15, 9, 2, '55', 'HAPPY CLIENTS', NULL, NULL),
+(16, 9, 1, '55', 'СЧАСТЛИВЫЕ КЛИЕНТЫ', NULL, NULL),
+(17, 10, 2, '63', 'DELIVERED PROJECTS', NULL, NULL),
+(18, 10, 1, '63', 'ЗАВЕРШЕННЫЕ ПРОЕТКЫ', NULL, NULL),
+(19, 11, 2, 'We’re cultured', 'As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves.', NULL, NULL),
+(20, 11, 1, 'Мы культура', 'As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves.', NULL, NULL),
+(21, 14, 2, 'Test123', 'Test123Test123Test123\r\nTest123Test123Test123', '2019-12-06 18:45:45', '2019-12-06 18:45:45'),
+(22, 15, 1, 'Тест123', 'Тест123Тест123Тест123\r\nТест123Тест123Тест123', '2019-12-06 18:46:39', '2019-12-06 18:46:39');
 
 -- --------------------------------------------------------
 
@@ -556,7 +582,7 @@ INSERT INTO `paragraphs` (`id`, `lang_id`, `title`, `text`, `location`) VALUES
 (48, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
 (49, 2, 'CATEGORY', 'FRONT-END, WORDPRESS', 'project_category'),
 (50, 1, 'Категория', 'Фронт-енд', 'project_category'),
-(51, 2, 'DATE', 'JUNE 2017', 'project_date'),
+(51, 2, 'DATE!', 'JUNE 2017!', 'project_date'),
 (52, 1, 'ДАТА', 'ИЮНЬ 2018', 'project_date'),
 (53, 2, 'CLIENT', 'MASTER PODELKIN', 'project_client'),
 (54, 1, 'КЛИЕНТ', 'МАССТЕР ПОДЕЛКИН', 'project_client'),
@@ -573,7 +599,39 @@ INSERT INTO `paragraphs` (`id`, `lang_id`, `title`, `text`, `location`) VALUES
 (65, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
 (66, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
 (67, 2, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
-(68, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more');
+(68, 1, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'read_more'),
+(69, 2, 'asdsd', 'asdsd', 'project_date'),
+(70, 2, 'asdsd', 'asdsd', 'project_category'),
+(71, 2, 'asdsd', 'asdsd', 'project_client'),
+(72, 2, 'asdsd', 'asdsd', 'project_hours'),
+(73, 2, 'asdsd', 'asdsd', 'project_date'),
+(74, 2, 'asdsd', 'asdsd', 'project_category'),
+(75, 2, 'asdsd', 'asdsd', 'project_client'),
+(76, 2, 'asdsd', 'asdsd', 'project_hours'),
+(77, 2, 'asdsd', 'asdsd', 'project_date'),
+(78, 2, 'asdsd', 'asdsd', 'project_category'),
+(79, 2, 'asdsd', 'asdsd', 'project_client'),
+(80, 2, 'asdsd', 'asdsd', 'project_hours'),
+(81, 2, 'asdsd', 'asdsd', 'project_date'),
+(82, 2, 'asdsd', 'asdsd', 'project_category'),
+(83, 2, 'asdsd', 'asdsd', 'project_client'),
+(84, 2, 'asdsd', 'asdsd', 'project_hours'),
+(85, 2, 'Development!', 'Development!', 'project_date'),
+(86, 2, 'Development!', 'Development!', 'project_category'),
+(87, 2, 'Development!', 'Development!', 'project_client'),
+(88, 2, 'Development!', 'Development!', 'project_hours'),
+(89, 2, 'Development!', 'Development!', 'project_date'),
+(90, 2, 'Development!', 'Development!', 'project_category'),
+(91, 2, 'Development!', 'Development!', 'project_client'),
+(92, 2, 'Development!', 'Development!', 'project_hours'),
+(93, 2, 'sadads', 'sadsad', 'project_date'),
+(94, 2, 'sadads', 'sadads', 'project_category'),
+(95, 2, 'asdads', 'saddsa', 'project_client'),
+(96, 2, 'saddsa', 'sadads', 'project_hours'),
+(97, 2, 'sadads', 'sadsad', 'project_date'),
+(98, 2, 'sadads', 'sadads', 'project_category'),
+(99, 2, 'asdads', 'saddsa', 'project_client'),
+(100, 2, 'saddsa', 'sadads', 'project_hours');
 
 -- --------------------------------------------------------
 
@@ -649,8 +707,9 @@ CREATE TABLE `portfolio_projects` (
 --
 
 INSERT INTO `portfolio_projects` (`id`, `lang_id`, `title`, `subtitle`, `name`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
-(1, 2, 'YOUR MOST AUDATI0US VISION', 'LET US AT IT', 'R-CONNECT', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL),
-(2, 1, 'YOUR MOST AUDATI0US VISION', 'лЕТ УС ЕТ ИТ', 'Р-КОННЕКТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ', 'ГЕТ ИН ТАЧ', NULL, NULL);
+(1, 2, 'YOUR MOST AUDATI0US VISION!\"\"', 'LET US AT IT!!!!\"', 'R-CONNECT!\"\"', 'LET’S START A NEW PROJECT TOGETHER!!\"\"', 'GET IN TOUCH!!!\"\"', NULL, '2019-12-07 07:14:29'),
+(2, 1, 'YOUR MOST AUDATI0US VISION', 'лЕТ УС ЕТ ИТ', 'Р-КОННЕКТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ', 'ГЕТ ИН ТАЧ', NULL, NULL),
+(12, 2, 'adssad', 'dsasadads', 'sdadsa', 'saddsa', 'asdadssad', '2019-12-07 13:35:06', '2019-12-07 13:35:06');
 
 -- --------------------------------------------------------
 
@@ -662,6 +721,18 @@ CREATE TABLE `portfolio_project_to_images` (
   `port_proj_id` int(10) UNSIGNED NOT NULL,
   `image_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `portfolio_project_to_images`
+--
+
+INSERT INTO `portfolio_project_to_images` (`port_proj_id`, `image_id`) VALUES
+(1, 16),
+(2, 16),
+(1, 17),
+(2, 17),
+(12, 19),
+(12, 20);
 
 -- --------------------------------------------------------
 
@@ -686,7 +757,11 @@ INSERT INTO `portfolio_project_to_paragraphs` (`pproj_id`, `paragraph_id`) VALUE
 (1, 53),
 (2, 54),
 (1, 55),
-(2, 56);
+(2, 56),
+(12, 97),
+(12, 98),
+(12, 99),
+(12, 100);
 
 -- --------------------------------------------------------
 
@@ -1157,7 +1232,7 @@ ALTER TABLE `blog_page_details`
 -- AUTO_INCREMENT для таблицы `blog_projects`
 --
 ALTER TABLE `blog_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `contact_pages`
@@ -1175,13 +1250,13 @@ ALTER TABLE `home_pages`
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `image_texts`
 --
 ALTER TABLE `image_texts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `langs`
@@ -1199,7 +1274,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `paragraphs`
 --
 ALTER TABLE `paragraphs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio_pages`
@@ -1217,7 +1292,7 @@ ALTER TABLE `portfolio_page_details`
 -- AUTO_INCREMENT для таблицы `portfolio_projects`
 --
 ALTER TABLE `portfolio_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `services`

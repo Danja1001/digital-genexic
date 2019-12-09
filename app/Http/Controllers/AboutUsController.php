@@ -19,10 +19,12 @@ class AboutUsController extends Controller
         $main_text = $paragraphs->where('location', 'main');
         $our_mission = $paragraphs->where('location', 'sub_main');
         $genexic_title = $paragraphs->where('location', 'genexic')->first();
-        $genexic_desc = $paragraphs->where('location', 'genexic_desc');
+        $genexic_desc = $paragraphs->where('location', 'genexic_desc')->values();
+
         $read_more = $paragraphs->where('location', 'read_more');
         $langs = Lang::all();
 
+        $data['title'] = preg_split('//u', $about_us_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['icons'] = $icons->where('icon', 1);
         $data['our_mission'] = $our_mission;
         $data['image'] = $icons->where('icon', 0)->first();
@@ -33,7 +35,6 @@ class AboutUsController extends Controller
         $data['read_more'] = $read_more;
         $data['lang'] = $lang;
         $data['langs'] = $langs;
-
 
         return view('pages.about-us', compact('data'));
     }

@@ -10,10 +10,10 @@
 	<title>Gelexic</title>
 
 	<!-- CSS -->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
 	<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('assets/css/media.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" media="screen">
@@ -23,7 +23,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="{{ asset('vendor/js/wow.min.js') }}"></script>
+	<script src="{{ asset('assets/js/wow.min.js') }}"></script>
 	<!-- END OF SCRIPT -->
 </head>
 
@@ -43,7 +43,7 @@
 	<script src="{{ asset('assets/js/jquery.isotope.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.isotope.sloppy-masonry.min.js') }}"></script>
 	<script src="{{ asset('assets/canvas/waterpipe.js') }}"></script>
-	<script src="{{ asset('assets/js/main.js') }}j"></script>
+	<script src="{{ asset('assets/js/main.js') }}"></script>
 	<script>
 		function func() {
 			var smokyBG = $(' #wavybg-wrapper').waterpipe({

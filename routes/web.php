@@ -1,20 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 $adminConfig = [
@@ -93,40 +78,40 @@ Route::get('/home', 'HomeController@index')->name('home');
 /**
  * HOME PAGE ROUTES
  */
-Route::get('home-page/{lang}', 'HomePageController@index')->name('home.index');
+Route::get('/{lang?}', 'HomePageController@index')->name('home.index');
 
 /**
  * ABOUT US PAGE
  */
-Route::get('about-us-page/{lang}', 'AboutUsController@index')->name('about-us.index');
+Route::get('about-us-page/{lang?}', 'AboutUsController@index')->name('about-us.index');
 
 /**
  * CONTACT US PAGE
  */
-Route::get('contact-us-page/{lang}', 'ContactUsController@index')->name('contact-us.index');
+Route::get('contact-us-page/{lang?}', 'ContactUsController@index')->name('contact-us.index');
 
 /**
  * SERVICES PAGE
  */
-Route::get('services-page/{lang}', 'ServicesController@index')->name('services-page.index');
-Route::get('service-details/{service_id}/{lang}', 'ServiceController@index')->name('service.index');
+Route::get('services-page/{lang?}', 'ServicesController@index')->name('services-page.index');
+Route::get('service-details/{service_id}/{lang?}', 'ServiceController@index')->name('service.index');
 
 /**
  * PORTFOLIO PAGE
  */
-Route::get('portfolio-page/{lang}', 'PortfolioController@index')->name('portfolio.index');
+Route::get('portfolio-page/{lang?}', 'PortfolioController@index')->name('portfolio.index');
 
 /**
  * PORTFOLIO DETAIL PAGE
  */
-Route::get('portfolio-detail-page/{lang}/{project_id}', 'PortfolioProjectController@index')->name('portfolio-detail.index');
+Route::get('portfolio-detail-page/{lang?}/{project_id}', 'PortfolioProjectController@index')->name('portfolio-detail.index');
 
 /**
  * BLOG PAGE
  */
-Route::get('blog-page/{lang}', 'BlogController@index')->name('blog.index');
+Route::get('blog-page/{lang?}', 'BlogController@index')->name('blog.index');
 
 /**
  * BLOG DETAIL PAGE
  */
-Route::get('blog-detail-page/{lang}/{project_id}', 'BlogProjectController@index')->name('blog-detail.index');
+Route::get('blog-detail-page/{lang?}/{project_id}', 'BlogProjectController@index')->name('blog-detail.index');

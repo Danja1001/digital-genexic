@@ -22,6 +22,7 @@ class ContactUsController extends Controller
 
         $data['contact_us_page'] = $contact_us_page;
         $data['langs'] = $langs;
+        $data['lang'] = $lang;
 
         return view('admin.contact-us-page', compact('data'));
     }
