@@ -11,30 +11,30 @@
             </a>
             <nav class="mobile-nav-wrap" role="navigation">
                 <ul class="mobile-header-nav">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="o_nas.html">about us</a></li>
-                    <li><a href="services.html">services</a></li>
-                    <li><a href="portfolio.html">portfolio</a></li>
-                    <li><a href="blog.html">blog</a></li>
-                    <li><a href="contacts.html">contact us</a></li>
+                    <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
+                    <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
+                    <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
+                    <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
+                    <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
+                    <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
                 </ul>
             </nav>
         </div>
         <div class="row padding-top-header">
             <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
                 <div class="header-logo">
-                    <a href="index.html"><img src="img/Logo.svg" alt="#"></a>
+                    <a href="index.html"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
                 </div>
             </div>
             <div class="col-lg-5 col-lg-push-1 col-md-6 col-md-push-1 col-sm-8 col-sm-push-1 col-xs-8 nav-media">
                 <div class="header-nav wow flipInX">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="o_nas.html">about us</a></li>
-                        <li><a href="services.html">services</a></li>
-                        <li><a href="portfolio.html">portfolio</a></li>
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="contacts.html">contact us</a></li>
+                        <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
+                        <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
+                        <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
+                        <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
+                        <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
+                        <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,32 +42,12 @@
         <div class="row header-section-two">
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 audacious-fly-in">
                 <ul class="fly-in hidden">
-                    <li>y</li>
-                    <li>o</li>
-                    <li>u</li>
-                    <li>r</li>
-                    <li>m</li>
-                    <li>o</li>
-                    <li>s</li>
-                    <li>t</li>
-                    <li>a</li>
-                    <li>u</li>
-                    <li>d</li>
-                    <li>a</li>
-                    <li>t</li>
-                    <li>i</li>
-                    <li>0</li>
-                    <li>u</li>
-                    <li>s</li>
-                    <li>v</li>
-                    <li>i</li>
-                    <li>s</li>
-                    <li>i</li>
-                    <li>o</li>
-                    <li>n</li>
+                    @foreach($data['title'] as $t)
+                    <li>{{ $t }}</li>
+                    @endforeach
                 </ul>
-                <p>Let us at it</p>
-                <p class="wow flipInX">First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.</p>
+                <p>{{ $data['portfolio_page']->subtitle }}</p>
+                <p class="wow flipInX">{{ $data['portfolio_page']->subtitle_text }}</p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 background-social">
                 <div class="block-social">
@@ -86,12 +66,13 @@
     <div class="row">
         <div class=" col-lg-12 header-logo">
             <span id="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span>
-            <a href="#"><img src="img/Logo.svg" alt="#"></a>
+            <a href="#"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 in-touch-form">
-            <p class="wow pulse">Interested in talking to us about a new project or want to find out more about our agency?</p>
+            <p class="wow pulse">Interested in talking to us about a new project or want to find out more about our
+                agency?</p>
             <form method="post">
                 <input type="text" placeholder="name">
                 <input type="email" placeholder="e-mail">
@@ -120,169 +101,35 @@
                 </ul>
             </div>
             <ul class="portfolio-items row">
+                @foreach($data['portfolio_projects'] as $project)
                 <li class="portfolio-item apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="item-inner">
                         <figure class="effect-hera">
-                            <img src="img/portfolio1.png" alt="#">
+                            <img src="{{ asset('storage/' . $project->images->first()->image) }}"
+                                alt="{{ $project->name }}">
                             <div class="overlay">
                                 <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
+                                    <a class="preview btn btn-danger"
+                                        href="{{ route('portfolio-detail.index', ['lang' => $data['lang'], 'project_id' => $project->id ]) }}"><i
+                                            class="fas fa-eye"></i></a>
                                 </p>
                             </div>
                         </figure>
                     </div>
                 </li>
-                <li class="portfolio-item joomla bootstrap col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio2.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item bootstrap wordpress col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio3.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item joomla wordpress apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio4.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item joomla html col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio5.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item wordpress html col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio6.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio1.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item joomla bootstrap col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio2.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item bootstrap wordpress col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio3.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item joomla wordpress apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio4.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item joomla html col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio5.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
-                <li class="portfolio-item wordpress html col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="item-inner">
-                        <figure class="effect-hera">
-                            <img src="img/portfolio6.png" alt="#">
-                            <div class="overlay">
-                                <p>
-                                    <a class="preview btn btn-danger" href="portfolio_detail.html"><i class="fas fa-eye"></i></a>
-                                </p>
-                            </div>
-                        </figure>
-                    </div>
-                </li>
+                @endforeach
             </ul>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 more-works">
-                <p>View<span><i class="fa fa-angle-right" aria-hidden="true"></i></span></p>
-            </div>
         </div>
         <div class="row">
             <div class="col-lg-12 view-more-button view-more-background">
                 <div class="button-look">
-                    <p><button id="buttonOpen"><span>Read more</span></button></p>
+                    <p><button id="buttonOpen"><span>{{ $data['portfolio_page']->read_more_btn }}</span></button></p>
                 </div>
                 <div class="more-content">
-                    <h1>Lorem ipsum</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    @foreach($data['read_more'] as $p)
+                    <h1>{{ $p->title }}</h1>
+                    <p>{{ $p->text }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -295,10 +142,10 @@
     <div class="container-fluid portfolio-footer">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <p class="wow flipInX footer-title">LET’S START A NEW PROJECT TOGETHER!</p>
+                <p class="wow flipInX footer-title">{{ $data['portfolio_page']->footer_title }}</p>
                 <div class="button-container-1 button-footer wow swing">
-                    <span class="mas">Get in touch</span>
-                    <button id='go2' type="button" name="Hover">Get in touch</button>
+                    <span class="mas">{{ $data['portfolio_page']->footer_btn_text }}</span>
+                    <button id='go2' type="button" name="Hover">{{ $data['portfolio_page']->footer_btn_text }}</button>
                 </div>
                 <ul>
                     <li><a href="#"><i class="fab fa-telegram"></i></a></li>
