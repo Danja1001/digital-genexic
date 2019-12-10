@@ -24,7 +24,7 @@
         <div class="row padding-top-header">
             <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
                 <div class="header-logo">
-                    <a href="index.html"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
+                    <a href="#"><img src="{{ asset('assets/img/Logo.svg') }}" alt="#"></a>
                 </div>
             </div>
             <div class="col-lg-6 col-lg-push-1 col-md-7 col-md-push-1 col-sm-8 col-sm-push-1 col-xs-8 nav-media">
@@ -50,9 +50,9 @@
                 </div>
                 <div class="block-social">
                     <ul>
-                        <li><a href="#" id="zoom-fade1">facebook</a></li>
-                        <li><a href="#" id="zoom-fade2">twitter</a></li>
-                        <li><a href="#" id="zoom-fade3">linkedin</a></li>
+                        <li><a href="{{ route('home.index', ['lang' => 2])}}" id="zoom-fade1">English</a></li>
+                        <li><a href="{{ route('home.index', ['lang' => 1])}}" id="zoom-fade2">Russian</a></li>
+                        <li><a href="#" id="zoom-fade2">ukrainian</a></li>
                     </ul>
                 </div>
             </div>
@@ -224,7 +224,7 @@
                             <img src="{{ asset('storage/' . $project->images->first()->image) }}" alt="{{ $project->name }}">
                             <div class="overlay">
                                 <p>
-                                    <a class="preview btn btn-danger" href="blog_detail.html"><i class="fas fa-eye"></i></a>
+                                    <a class="preview btn btn-danger" href="{{ route('portfolio-detail.index', ['lang' => $data['lang'], 'project_id' => $project->id ]) }}"><i class="fas fa-eye"></i></a>
                                 </p>
                             </div>
                         </figure>

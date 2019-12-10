@@ -49,15 +49,15 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <form class="header-search-form">
-                    <input type="search" placeholder="What find?">
+                    <input type="search" placeholder="{{ $data['blog_page']->search_btn_placeholder }}">
                     <button><i class="fas fa-search"></i></button>
                 </form>
             </div>
             <div class="block-social">
                 <ul>
-                    <li><a href="#" id="zoom-fade1">facebook</a></li>
-                    <li><a href="#" id="zoom-fade2">twitter</a></li>
-                    <li><a href="#" id="zoom-fade3">linkedin</a></li>
+                    <li><a href="{{ route('blog.index', ['lang' => 2])}}" id="zoom-fade1">English</a></li>
+                    <li><a href="{{ route('blog.index', ['lang' => 1])}}" id="zoom-fade2">Russian</a></li>
+                    <li><a href="#" id="zoom-fade2">ukrainian</a></li>
                 </ul>
             </div>
         </div>
@@ -98,13 +98,11 @@
                     <div class="card-columns">
                         @foreach($data['blog_projects'] as $blog_project)
                         <div class="card">
-                            {{-- {{ route('portfolio-detail.index', ['lang' => $data['lang'], 'project_id' => $project->id ]) }}
-                            --}}
-                            <img class="card-img-top"
-                                src="{{ asset('storage/' . $blog_project->images->first()->image) }}"
-                                alt="Card image cap">
+                            <img class="card-img-top" src="{{ asset('storage/' . $blog_project->images->first()->image) }}" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $blog_project->images->first()->text($data['lang'])->title }}
+                                <h5 class="card-title">
+                                    <a href="{{ route('blog-detail.index', ['lang' => $data['lang'], 'project_id' => $blog_project->id ]) }}">
+                                        {{ $blog_project->images->first()->text($data['lang'])->title }}</a>
                                 </h5>
                                 <p class="card-text">
                                     {{ $blog_project->images->first()->text($data['lang'])->text }}

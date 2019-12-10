@@ -52,9 +52,9 @@
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 background-social">
                 <div class="block-social">
                     <ul>
-                        <li><a href="#" id="zoom-fade1">facebook</a></li>
-                        <li><a href="#" id="zoom-fade2">twitter</a></li>
-                        <li><a href="#" id="zoom-fade3">linkedin</a></li>
+                        <li><a href="{{ route('portfolio.index', ['lang' => 2])}}" id="zoom-fade1">English</a></li>
+                        <li><a href="{{ route('portfolio.index', ['lang' => 1])}}" id="zoom-fade2">Russian</a></li>
+                        <li><a href="#" id="zoom-fade2">ukrainian</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,13 +105,10 @@
                 <li class="portfolio-item apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="item-inner">
                         <figure class="effect-hera">
-                            <img src="{{ asset('storage/' . $project->images->first()->image) }}"
-                                alt="{{ $project->name }}">
+                            <img src="{{ asset('storage/' . $project->images->first()->image) }}" alt="{{ $project->name }}">
                             <div class="overlay">
                                 <p>
-                                    <a class="preview btn btn-danger"
-                                        href="{{ route('portfolio-detail.index', ['lang' => $data['lang'], 'project_id' => $project->id ]) }}"><i
-                                            class="fas fa-eye"></i></a>
+                                    <a class="preview btn btn-danger" href="{{ route('portfolio-detail.index', ['lang' => $data['lang'], 'project_id' => $project->id ]) }}"><i class="fas fa-eye"></i></a>
                                 </p>
                             </div>
                         </figure>

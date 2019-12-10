@@ -47,13 +47,6 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="block-social">
-                <ul>
-                    <li><a href="#" id="zoom-fade1">facebook</a></li>
-                    <li><a href="#" id="zoom-fade2">twitter</a></li>
-                    <li><a href="#" id="zoom-fade3">linkedin</a></li>
-                </ul>
-            </div>
             <div class="blog_detail_padding"></div>
         </div>
     </div>
@@ -91,17 +84,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="blog-detail-contant">
                     <div class="blog-content">
-                        <h1 class="blog-title">We’re cultured Introducing six brand new Culture Values™
+                        <h1 class="blog-title">{{ $data['blog_detail_page']->subtitle_text }}
                         </h1>
-                        <p>Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50
-                            people of 20 nationalities in four offices with real tables and chairs, we’ve started
-                            thinking about how we can keep being ourselves, even as we grow and change.</p>
-                        <p>That’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team
-                            of Prussian scientists over a period of several months.</p>
-                        <p>Halli, our founder and CEO wrote a blog post about the whole thing.</p>
+                        <p>{{ $data['icons'][0]->text($data['lang'])->text }}</p>
                     </div>
-                    <p class="blog-img"><span class="content-date">October 4, 2017</span><img src="img/blog_detail.png"
-                            alt="#"></p>
+                    <p class="blog-img"><span class="content-date">October 4, 2017</span><img src="{{ asset('storage/' . $data['icons'][0]->image) }}" alt="#"></p>
                 </div>
             </div>
         </div>
@@ -112,50 +99,25 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="keep-reading-blog">
                         <div>
-                            <p class="keep-reading-title">keep reading</p>
-                        </div>
-                        <div class="more-works">
-                            <a href="blog.html">See all<span><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i></span></a>
+                            <p class="keep-reading-title">{{ $data['blog_detail_page']->keep_reading }}</p>
                         </div>
                     </div>
                     <div class="blog-last-articles">
                         <ul class="blog-items row">
+                            @foreach($data['blog_projects'] as $blog_project)
                             <li class="blog-item col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                 <div class="item-inner video">
                                     <figure class="snip1401">
-                                        <img src="img/blog_detail-3.png" alt="#">
+                                        <img src="{{ asset('storage/' . $blog_project->images->first()->image)}}" alt="#">
                                         <figcaption>
-                                            <h3>Just launched: ESPN’s mobile-first Body Issue</h3>
+                                            <h3>{{ $blog_project->title }}</h3>
                                         </figcaption>
                                         <i class="fas fa-caret-right"></i>
                                         <a href="#"></a>
                                     </figure>
                                 </div>
                             </li>
-                            <li class="blog-item col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <div class="item-inner content">
-                                    <figure class="snip1401">
-                                        <img src="img/blog_detail-2.png" alt="#">
-                                        <figcaption>
-                                            <h3>David Navarro is our new Executive Creative Director</h3>
-                                        </figcaption>
-                                        <a href="#"></a>
-                                    </figure>
-                                </div>
-                            </li>
-                            <li class="blog-item col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <div class="item-inner video">
-                                    <figure class="snip1401">
-                                        <img src="img/blog_detail-1.png" alt="#">
-                                        <figcaption>
-                                            <h3>Ueno & Uber Team Up for “Uber.design”</h3>
-                                        </figcaption>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href="#"></a>
-                                    </figure>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -173,8 +135,7 @@
                 <p class="wow flipInX footer-title">{{ $data['blog_detail_page']->footer_title }}</p>
                 <div class="button-container-1 button-footer wow swing">
                     <span class="mas">{{ $data['blog_detail_page']->footer_btn_title }}</span>
-                    <button id='go2' type="button"
-                        name="Hover">{{ $data['blog_detail_page']->footer_btn_title }}</button>
+                    <button id='go2' type="button" name="Hover">{{ $data['blog_detail_page']->footer_btn_title }}</button>
                 </div>
                 <ul>
                     <li><a href="#"><i class="fab fa-telegram"></i></a></li>

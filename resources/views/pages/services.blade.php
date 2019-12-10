@@ -49,9 +49,9 @@
             </div>
             <div class="block-social">
                 <ul>
-                    <li><a href="#" id="zoom-fade1">facebook</a></li>
-                    <li><a href="#" id="zoom-fade2">twitter</a></li>
-                    <li class="services-s"><a href="#" id="zoom-fade3">linkedin</a></li>
+                    <li><a href="{{ route('services-page.index', ['lang' => 2])}}" id="zoom-fade1">english</a></li>
+                    <li><a href="{{ route('services-page.index', ['lang' => 1])}}" id="zoom-fade2">russian</a></li>
+                    <li><a href="#" id="zoom-fade2">ukrainian</a></li>
                 </ul>
             </div>
         </div>

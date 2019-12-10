@@ -13,6 +13,7 @@ class BlogProjectController extends Controller
         $blog_detail_page = BlogProject::with('images.texts')
             ->where('id', $id)
             ->where('lang_id', $lang)->first();
+        $blog_projects = BlogProject::where('lang_id', $lang)->get();
 
         $icons = $blog_detail_page->images;
         $langs = Lang::all();
@@ -20,6 +21,7 @@ class BlogProjectController extends Controller
         $data['title'] = preg_split('//u', $blog_detail_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['icons'] = $icons;
         $data['blog_detail_page'] = $blog_detail_page;
+        $data['blog_projects'] = $blog_projects;
         $data['langs'] = $langs;
         $data['lang'] = $lang;
 

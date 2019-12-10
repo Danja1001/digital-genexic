@@ -47,14 +47,7 @@
                         <li>{{ $t }}</li>
                         @endforeach
                     </ul>
-                    <p class="text-transition">LET US AT IT</p>
-                </div>
-                <div class="block-social">
-                    <ul>
-                        <li><a href="#" id="zoom-fade1">facebook</a></li>
-                        <li><a href="#" id="zoom-fade2">twitter</a></li>
-                        <li><a href="#" id="zoom-fade3">linkedin</a></li>
-                    </ul>
+                    <p class="text-transition">{{ $data['portfolio_detail_page']->subtitle }}</p>
                 </div>
             </div>
         </div>
@@ -92,85 +85,35 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="r-connect-title">
-                    <span class="connect-title">R-CONNECT</span>
+                    <span class="connect-title">{{ $data['portfolio_detail_page']->name }}</span>
                 </h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="devices-picture">
-                    <img src="img/portfolio_detail-two.png" alt="#">
+                    <img src="{{ asset('storage/' . $data['icons'][0]->image )}}" alt="#">
                 </div>
                 <div class="devices-picture-description">
                     <div class="portfolio-client wow bounceInUp">
-                        <p>CATEGORY</p>
-                        <p>Front-End, Wordpress</p>
+                        <p>{{ $data['project_category']->title }}</p>
+                        <p>{{ $data['project_category']->text }}</p>
                     </div>
                     <div class="wow bounceInUp">
-                        <p>DATE</p>
-                        <p>June 2017</p>
+                        <p>{{ $data['project_date']->title }}</p>
+                        <p>{{ $data['project_date']->text }}</p>
                     </div>
                     <div class="portfolio-client wow bounceInUp">
-                        <p>CLIENT</p>
-                        <p>Master Podelkin</p>
+                        <p>{{ $data['project_client']->title }}</p>
+                        <p>{{ $data['project_client']->text }}</p>
                     </div>
                     <div class="wow bounceInUp">
-                        <p>HOURS</p>
-                        <p>128</p>
+                        <p>{{ $data['project_hours']->title }}</p>
+                        <p>{{ $data['project_hours']->text }}</p>
                     </div>
                 </div>
                 <div class="devices-picture-view">
-                    <img src="img/portfolio_detail.png" alt="#">
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 more-works">
-                    <p>Wisit site<span><i class="fa fa-angle-right" aria-hidden="true"></i></span></p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                <div class="recently-viewed-projects">
-                    <ul class="portfolio-items row">
-                        <li class="portfolio-item apps col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="item-inner wow bounceInUp">
-                                <figure class="effect-hera">
-                                    <img src="img/portfolio1.png" alt="#">
-                                    <div class="overlay">
-                                        <p>
-                                            <a class="preview btn btn-danger" href="404.html"><i
-                                                    class="fas fa-eye"></i></a>
-                                        </p>
-                                    </div>
-                                </figure>
-                            </div>
-                        </li>
-                        <li class="portfolio-item joomla bootstrap col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="item-inner wow bounceInDown">
-                                <figure class="effect-hera">
-                                    <img src="img/portfolio2.png" alt="#">
-                                    <div class="overlay">
-                                        <p>
-                                            <a class="preview btn btn-danger" href="404.html"><i
-                                                    class="fas fa-eye"></i></a>
-                                        </p>
-                                    </div>
-                                </figure>
-                            </div>
-                        </li>
-                        <li class="portfolio-item bootstrap wordpress col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="item-inner wow bounceInUp">
-                                <figure class="effect-hera">
-                                    <img src="img/portfolio3.png" alt="#">
-                                    <div class="overlay">
-                                        <p>
-                                            <a class="preview btn btn-danger" href="404.html"><i
-                                                    class="fas fa-eye"></i></a>
-                                        </p>
-                                    </div>
-                                </figure>
-                            </div>
-                        </li>
-                    </ul>
+                    <img src="{{ asset('storage/' . $data['icons'][1]->image )}}" alt="#">
                 </div>
             </div>
         </div>
@@ -185,8 +128,7 @@
                 <p class="wow flipInX footer-title">{{ $data['portfolio_detail_page']->footer_title }}</p>
                 <div class="button-container-1 button-footer wow swing">
                     <span class="mas">{{ $data['portfolio_detail_page']->footer_btn_title }}</span>
-                    <button id='go2' type="button"
-                        name="Hover">{{ $data['portfolio_detail_page']->footer_btn_title }}</button>
+                    <button id='go2' type="button" name="Hover">{{ $data['portfolio_detail_page']->footer_btn_title }}</button>
                 </div>
                 <ul>
                     <li><a href="#"><i class="fab fa-telegram"></i></a></li>

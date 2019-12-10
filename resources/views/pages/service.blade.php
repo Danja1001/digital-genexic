@@ -47,13 +47,6 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="block-social">
-                <ul>
-                    <li><a href="#" id="zoom-fade1">facebook</a></li>
-                    <li><a href="#" id="zoom-fade2">twitter</a></li>
-                    <li class="services-s"><a href="#" id="zoom-fade3">linkedin</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </header>

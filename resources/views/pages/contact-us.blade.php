@@ -50,9 +50,9 @@
                 </div>
                 <div class="block-social">
                     <ul>
-                        <li><a href="#" id="zoom-fade1">facebook</a></li>
-                        <li><a href="#" id="zoom-fade2">twitter</a></li>
-                        <li><a href="#" id="zoom-fade3">linkedin</a></li>
+                        <li><a href="{{ route('contact-us.index', ['lang' => 2])}}" id="zoom-fade1">EN</a></li>
+                        <li><a href="{{ route('contact-us.index', ['lang' => 1])}}" id="zoom-fade2">RU</a></li>
+                        <li><a href="#" id="zoom-fade2">ukrainian</a></li>
                     </ul>
                 </div>
             </div>
