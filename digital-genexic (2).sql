@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 10 2019 г., 00:00
+-- Время создания: Дек 12 2019 г., 23:54
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -45,7 +45,11 @@ INSERT INTO `about_to_images` (`about_us_page_id`, `image_id`) VALUES
 (1, 9),
 (2, 9),
 (1, 10),
-(2, 10);
+(2, 10),
+(3, 32),
+(3, 33),
+(3, 34),
+(3, 35);
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,22 @@ INSERT INTO `about_to_paragraphs` (`about_us_page_id`, `paragraph_id`) VALUES
 (1, 35),
 (2, 36),
 (1, 37),
-(2, 38);
+(2, 38),
+(3, 107),
+(3, 108),
+(3, 109),
+(3, 110),
+(3, 111),
+(3, 112),
+(3, 115),
+(3, 116),
+(3, 117),
+(3, 118),
+(3, 119),
+(3, 120),
+(3, 121),
+(3, 122),
+(3, 127);
 
 -- --------------------------------------------------------
 
@@ -117,7 +136,8 @@ CREATE TABLE `about_us_pages` (
 
 INSERT INTO `about_us_pages` (`id`, `lang_id`, `title`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`, `read_more_btn_title`) VALUES
 (1, 2, 'ABOUT US', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'READ MORE'),
-(2, 1, 'О НАС', 'Летс старт а нью проджет тугезер', 'ГЕТ ИН ТАЧ', NULL, NULL, 'ЧИТАТЬ БОЛЬШЕ');
+(2, 1, 'О НАС', 'Летс старт а нью проджет тугезер', 'ГЕТ ИН ТАЧ', NULL, NULL, 'ЧИТАТЬ БОЛЬШЕ'),
+(3, 3, 'UKR LANG', 'UKR LANG', 'UKR LANG', NULL, NULL, 'UKR LANG');
 
 -- --------------------------------------------------------
 
@@ -142,7 +162,8 @@ CREATE TABLE `blog_pages` (
 
 INSERT INTO `blog_pages` (`id`, `lang_id`, `title`, `search_btn_placeholder`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
 (1, 2, 'OUR BLOG!', 'What\'s find?!', 'LET’S START A NEW PROJECT TOGETHER!!', 'GET IN TOUCH!', NULL, '2019-12-05 19:08:32'),
-(2, 1, 'НАШ БЛОГ!', '#ШО НАШЛИ?!', 'LET’S START A NEW PROJECT TOGETHER!!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 19:08:48');
+(2, 1, 'НАШ БЛОГ!', '#ШО НАШЛИ?!', 'LET’S START A NEW PROJECT TOGETHER!!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 19:08:48'),
+(3, 3, 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,7 +204,9 @@ INSERT INTO `blog_projects` (`id`, `lang_id`, `title`, `subtitle_text`, `keep_re
 (1, 2, 'OUR BLOG', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'KEEP READING', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™'),
 (2, 1, 'НАЩШ БЛОГ', 'Here’s the thing. As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves, even as we grow and change.\r\n\r\nThat’s where our six brand new Culture Values™ come in. Carefully constructed by a crack team of Prussian scientists over a period of several months.\r\n\r\nHalli, our founder and CEO wrote a blog post about the whole thing.', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'We’re cultured Introducing six brand new Culture Values™'),
 (6, 2, 'Test123', 'Test123Test123\r\nTest123Test123', 'Kepp reading', 'LET’S START A NEW PROJECT TOGETHER!!', 'GET IN TOUCH!!!!!!@@23', '2019-12-06 18:45:45', '2019-12-06 18:45:45', NULL),
-(7, 1, 'Тест123', 'Тест123Тест123\r\nТест123Тест123', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', '2019-12-06 18:46:39', '2019-12-06 18:46:39', NULL);
+(7, 1, 'Тест123', 'Тест123Тест123\r\nТест123Тест123', 'кип ридинг', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', '2019-12-06 18:46:39', '2019-12-06 18:46:39', NULL),
+(8, 3, 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', NULL, NULL, 'Ukr Lang'),
+(9, 3, 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', 'Ukr Lang', NULL, NULL, 'Ukr Lang');
 
 -- --------------------------------------------------------
 
@@ -204,7 +227,9 @@ INSERT INTO `blog_project_to_images` (`blog_project_id`, `image_id`) VALUES
 (1, 11),
 (2, 11),
 (6, 14),
-(7, 15);
+(7, 15),
+(8, 21),
+(9, 22);
 
 -- --------------------------------------------------------
 
@@ -259,7 +284,8 @@ CREATE TABLE `contact_pages` (
 
 INSERT INTO `contact_pages` (`id`, `lang_id`, `title`, `card_title`, `card_email`, `card_phone`, `card_city`, `form_text`, `form_name`, `form_email`, `form_phone`, `form_btn`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
 (1, 2, 'CONTACT US!', 'OUR CONTACTS!', 'Info@genexic.com.ua', '+380675888539', 'Khmelnitskii, Ukraine', 'INTERESTED IN TALKING TO US ABOUT A NEW PROJECT OR WANT TO FIND OUT MORE ABOUT OUR AGENCY?', 'name', 'email', 'phone', 'GET IN TOUCH!', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH!', NULL, '2019-12-04 15:11:15'),
-(2, 1, 'КОНТАКТЫ', 'НАШИ КОНТАКТЫ', 'Info@genexic.com.ua', '+380675888539', 'Хмельницкий, Украина', 'INTERESTED IN TALKING TO US ABOUT A NEW PROJECT OR WANT TO FIND OUT MORE ABOUT OUR AGENCY?\r\n\r\n', 'имя', 'имейл', 'телефон', 'ГЕТ ИН ТАЧ', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL);
+(2, 1, 'КОНТАКТЫ', 'НАШИ КОНТАКТЫ', 'Info@genexic.com.ua', '+380675888539', 'Хмельницкий, Украина', 'INTERESTED IN TALKING TO US ABOUT A NEW PROJECT OR WANT TO FIND OUT MORE ABOUT OUR AGENCY?\r\n\r\n', 'имя', 'имейл', 'телефон', 'ГЕТ ИН ТАЧ', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL),
+(3, 3, 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', 'TEST UKR', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -286,7 +312,8 @@ CREATE TABLE `home_pages` (
 
 INSERT INTO `home_pages` (`id`, `lang_id`, `title`, `subtitle`, `header_btn_title`, `created_at`, `updated_at`, `footer_title`, `footer_text`, `footer_btn_title`) VALUES
 (1, 2, 'WE ARE DIGITAL AGENCY', 'We Create Your Imagination Into Reality', 'Get in touch', NULL, NULL, 'LET’S START', 'Our web studio is a reliable partner in the Internet environment. We are working on projects not for the sake of portfolio renewal, but, on the contrary, all our efforts are aimed at the best result, which will bring profit to our clients. Your business is in good hands.', 'Start'),
-(2, 1, 'Мы цифровая студия', 'Мы создаем ваше воображение в реальность', 'Получить в одно касание ', NULL, NULL, 'Летс старт', 'Наша студия ......', 'Старт');
+(2, 1, 'Мы цифровая студия', 'Мы создаем ваше воображение в реальность', 'Получить в одно касание ', NULL, NULL, 'Летс старт', 'Наша студия ......', 'Старт'),
+(3, 3, 'UKR LANG', 'UKR LANG', 'UKR LANG', NULL, NULL, 'UKR LANG', 'UKR LANG', 'UKR LANG');
 
 -- --------------------------------------------------------
 
@@ -315,7 +342,13 @@ INSERT INTO `home_to_images` (`home_page_id`, `image_id`) VALUES
 (1, 5),
 (2, 5),
 (1, 6),
-(2, 6);
+(2, 6),
+(3, 23),
+(3, 24),
+(3, 25),
+(3, 26),
+(3, 27),
+(3, 28);
 
 -- --------------------------------------------------------
 
@@ -340,7 +373,11 @@ INSERT INTO `home_to_paragraphs` (`home_page_id`, `paragraph_id`) VALUES
 (1, 5),
 (2, 6),
 (1, 7),
-(2, 8);
+(2, 8),
+(3, 101),
+(3, 103),
+(3, 105),
+(3, 106);
 
 -- --------------------------------------------------------
 
@@ -380,7 +417,22 @@ INSERT INTO `images` (`id`, `image`, `icon`, `created_at`, `updated_at`) VALUES
 (17, 'home/zWOJV3W44uGxEMTX4tHZiNY43hnMZYSr0P12LzYM.png', 0, NULL, '2019-12-06 20:27:25'),
 (18, 'home/dsz25GsKZ8ASdBhwyfB03bvbmoyi2rVh5Br3oNxt.png', 0, '2019-12-07 13:34:15', '2019-12-07 13:34:15'),
 (19, 'home/8pZdV37wiT8BpyNeqiCCSC5CXj0UbY7mDXD2itzn.png', 0, '2019-12-07 13:35:06', '2019-12-07 13:35:06'),
-(20, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, '2019-12-07 13:35:06', '2019-12-07 13:35:06');
+(20, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, '2019-12-07 13:35:06', '2019-12-07 13:35:06'),
+(21, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, NULL, NULL),
+(22, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, NULL, NULL),
+(23, 'home/yvOHEpZ4Aasao2jzU9HY2mDIJxc33zudqXv1IxNw.png', 1, NULL, NULL),
+(24, 'home/PHTrRSiVZ1To3HDNqsvYVR1he0vjhu3rZaYe4iLh.png', 1, NULL, NULL),
+(25, 'home/reOgScp7leDNFHDtO5zCxZS2LizFX9upbCWUV2r4.png', 1, NULL, NULL),
+(26, 'home/qmd4jMOTl3ZYG5Y9wXNzUy0o7YWXkRyvIeSqMm24.png', 1, NULL, NULL),
+(27, 'home/thdPU8vgxnkuA6xZPZqPP4qr9v29rW0L38RdCO5A.png', 1, NULL, NULL),
+(28, 'home/cVbHp4KDgoN8K8GDfKj1pPIjplgvLhekJe9jxWlH.png', 1, NULL, NULL),
+(29, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, NULL, NULL),
+(30, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, NULL, NULL),
+(31, 'home/YLQhOOjMETRu3ORsCfnnN1u8o1sJx8frnHFA3QMl.png', 0, NULL, NULL),
+(32, 'home/q41lALXmWjaPpJ9hLgrzMgwis3HJ38WT17F0QnNh.png', 0, NULL, NULL),
+(33, 'home/rXIVrrl4jmqKMF5JYkOhdXKvzHIRTqKWASu5xwPw.png', 1, NULL, NULL),
+(34, 'home/UYMUpYU9uxYmEGzSW17b6j7RZHQKcBJeqG0NaKjo.png', 1, NULL, NULL),
+(35, 'home/wZGUq48tviBsPjQWCJCSqisqEVY31WkhrEvvoXV6.png', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -423,8 +475,22 @@ INSERT INTO `image_texts` (`id`, `image_id`, `lang_id`, `title`, `text`, `create
 (18, 10, 1, '63', 'ЗАВЕРШЕННЫЕ ПРОЕТКЫ', NULL, NULL),
 (19, 11, 2, 'We’re cultured', 'As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves.', NULL, NULL),
 (20, 11, 1, 'Мы культура', 'As Ueno has gone from one bearded guy in his living room to more than 50 people of 20 nationalities in four offices with real tables and chairs, we’ve started thinking about how we can keep being ourselves.', NULL, NULL),
-(21, 14, 2, 'Test123', 'Test123Test123Test123\r\nTest123Test123Test123', '2019-12-06 18:45:45', '2019-12-06 18:45:45'),
-(22, 15, 1, 'Тест123', 'Тест123Тест123Тест123\r\nТест123Тест123Тест123', '2019-12-06 18:46:39', '2019-12-06 18:46:39');
+(21, 14, 2, 'Test123', 'Test123Test123Test123\r\nTest123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123Test123Test123Test123 Test123Test123Test123Test123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123\r\nv\r\nv\r\nv\r\nvTest123Test123Test123 Test123Test123Test123\r\nTest123Test123Test123 Test123Test123Test123', '2019-12-06 18:45:45', '2019-12-10 17:46:06'),
+(22, 15, 1, 'Тест123', 'Тест123Тест123Тест123\r\nТест123Тест123Тест123', '2019-12-06 18:46:39', '2019-12-06 18:46:39'),
+(23, 21, 3, 'Test ', 'Test ', NULL, NULL),
+(24, 22, 3, 'Test ', 'Test ', NULL, NULL),
+(25, 23, 3, 'Test', 'Test', NULL, NULL),
+(26, 24, 3, 'Test', 'Test', NULL, NULL),
+(27, 25, 3, 'Test', 'Test', NULL, NULL),
+(28, 26, 3, 'Test', 'Test', NULL, NULL),
+(29, 27, 3, 'Test', 'Test', NULL, NULL),
+(30, 28, 3, 'Test', 'Test', NULL, NULL),
+(31, 30, 3, 'TEST', 'TEST', NULL, NULL),
+(32, 31, 3, 'TEST', 'TEST', NULL, NULL),
+(33, 33, 3, '11', 'TESTTESTTESTTESTTEST', NULL, NULL),
+(34, 34, 3, '11', 'TESTTESTTEST', NULL, NULL),
+(35, 34, 3, '48', 'TESTTESTTESTTEST', NULL, NULL),
+(36, 35, 3, '55', 'TESTTESTTESTTEST', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -631,7 +697,41 @@ INSERT INTO `paragraphs` (`id`, `lang_id`, `title`, `text`, `location`) VALUES
 (97, 2, 'sadads', 'sadsad', 'project_date'),
 (98, 2, 'sadads', 'sadads', 'project_category'),
 (99, 2, 'asdads', 'saddsa', 'project_client'),
-(100, 2, 'saddsa', 'sadads', 'project_hours');
+(100, 2, 'saddsa', 'sadads', 'project_hours'),
+(101, 3, 'UKR LANG', 'UKR LANG', 'our_mission'),
+(103, 3, 'UKR LANG', '', 'offer'),
+(105, 3, 'UKR LANG', 'UKR LANG', 'working_process'),
+(106, 3, 'UKR LANG', 'UKR LANG', 'vision'),
+(107, 3, '', 'UKR LANG', 'main'),
+(108, 3, '', 'UKR LANG', 'main'),
+(109, 3, NULL, 'UKR LANG', 'main'),
+(110, 3, NULL, 'UKR LANG', 'main'),
+(111, 3, 'UKR LANG', 'UKR LANG', 'sub_main'),
+(112, 3, 'UKR LANG', 'UKR LANG', 'sub_main'),
+(115, 3, 'UKR LANG', '', 'genexic'),
+(116, 3, 'UKR LANG', 'UKR LANG', 'genexic_desc'),
+(117, 3, 'UKR LNAG', 'UKR LNAG', 'genexic_desc'),
+(118, 3, 'UKR LNAG', 'UKR LNAG', 'genexic_desc'),
+(119, 3, 'UKR LANG', 'UKR LANG', 'read_more'),
+(120, 3, NULL, 'UKR LANG', 'read_more'),
+(121, 3, NULL, 'UKR LANG', 'read_more'),
+(122, 3, NULL, 'UKR LANG', 'read_more'),
+(127, 3, NULL, 'read_more', 'read_more'),
+(128, 3, 'TEST', 'TEST', 'project_date'),
+(129, 3, 'TEST', 'TEST', 'project_category'),
+(130, 3, 'TEST', 'TEST', 'project_client'),
+(131, 3, 'TEST', 'TEST', 'project_hours'),
+(132, 3, 'Lor', 'dsasadsdadasdsadsa', 'read_more'),
+(133, 3, NULL, 'adsdsasdasadsadadssdasad', 'read_more'),
+(134, 3, NULL, 'adssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasd', 'read_more'),
+(135, 3, NULL, 'adssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasdadssdasaddsaasd', 'read_more'),
+(136, 3, NULL, 'adssaddsasdadsa', 'read_more'),
+(137, 3, 'Lorem', 'LoremLoremLoremLoLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremremLorem', 'read_more'),
+(138, 3, NULL, 'LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem', 'read_more'),
+(139, 3, NULL, 'LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem', 'read_more'),
+(140, 3, NULL, 'LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem', 'read_more'),
+(141, 3, NULL, 'LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem', 'read_more'),
+(142, 3, NULL, 'LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem', 'read_more');
 
 -- --------------------------------------------------------
 
@@ -670,7 +770,8 @@ CREATE TABLE `portfolio_pages` (
 
 INSERT INTO `portfolio_pages` (`id`, `lang_id`, `title`, `subtitle`, `subtitle_text`, `footer_title`, `footer_btn_text`, `created_at`, `updated_at`, `read_more_btn`) VALUES
 (1, 2, 'YOUR MOST AUDATI0US VISION!', 'LET US AT IT!', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'LET’S START A NEW PROJECT TOGETHER!', 'GET IN TOUCH!', NULL, '2019-12-05 18:35:43', 'Read More!'),
-(2, 1, 'Ю МАСТ ... ВИЗИОН!', 'ЛЕТ УС ЕС ИТ!', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 18:36:04', 'Читать больше!');
+(2, 1, 'Ю МАСТ ... ВИЗИОН!', 'ЛЕТ УС ЕС ИТ!', 'First impression is very important key to keep visitors on your website because this will create the attitude of guest to the site and decide whether stay or leave. Memorable,pleasant and convenient web design will attract attention of user.', 'ЛЕТС СТАРТ ТУГЕЗЕР!', 'ГЕТ ИН ТАЧ!', NULL, '2019-12-05 18:36:04', 'Читать больше!'),
+(3, 3, 'Test UK', 'Test UK', 'Test UK', 'Test UK', 'Test UK', NULL, NULL, 'Test UK');
 
 -- --------------------------------------------------------
 
@@ -707,9 +808,10 @@ CREATE TABLE `portfolio_projects` (
 --
 
 INSERT INTO `portfolio_projects` (`id`, `lang_id`, `title`, `subtitle`, `name`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`) VALUES
-(1, 2, 'YOUR MOST AUDATI0US VISION!\"\"', 'LET US AT IT!!!!\"', 'R-CONNECT!\"\"', 'LET’S START A NEW PROJECT TOGETHER!!\"\"', 'GET IN TOUCH!!!\"\"', NULL, '2019-12-07 07:14:29'),
-(2, 1, 'YOUR MOST AUDATI0US VISION', 'лЕТ УС ЕТ ИТ', 'Р-КОННЕКТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ', 'ГЕТ ИН ТАЧ', NULL, NULL),
-(12, 2, 'adssad', 'dsasadads', 'sdadsa', 'saddsa', 'asdadssad', '2019-12-07 13:35:06', '2019-12-07 13:35:06');
+(1, 2, 'yourmostAUDATI0USvision!', 'LET US AT IT!!!!\"', 'R-CONNECT!\"\"', 'LET’S START A NEW PROJECT TOGETHER!!\"\"', 'GET IN TOUCH!!!\"\"', NULL, '2019-12-07 07:14:29'),
+(2, 1, 'YOURMOSTAUDATIUSVISION', 'лЕТ УС ЕТ ИТ', 'Р-КОННЕКТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ', 'ГЕТ ИН ТАЧ', NULL, NULL),
+(12, 2, 'adssad', 'dsasadads', 'sdadsa', 'saddsa', 'asdadssad', '2019-12-07 13:35:06', '2019-12-07 13:35:06'),
+(13, 3, 'TEst', 'TEst', 'TEst', 'TEst', 'TEst', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -732,7 +834,9 @@ INSERT INTO `portfolio_project_to_images` (`port_proj_id`, `image_id`) VALUES
 (1, 17),
 (2, 17),
 (12, 19),
-(12, 20);
+(12, 20),
+(13, 30),
+(13, 31);
 
 -- --------------------------------------------------------
 
@@ -761,7 +865,11 @@ INSERT INTO `portfolio_project_to_paragraphs` (`pproj_id`, `paragraph_id`) VALUE
 (12, 97),
 (12, 98),
 (12, 99),
-(12, 100);
+(12, 100),
+(13, 128),
+(13, 129),
+(13, 130),
+(13, 131);
 
 -- --------------------------------------------------------
 
@@ -790,7 +898,13 @@ INSERT INTO `portfolio_to_paragraphs` (`portfolio_page_id`, `paragraph_id`) VALU
 (1, 65),
 (2, 66),
 (1, 67),
-(2, 68);
+(2, 68),
+(3, 137),
+(3, 138),
+(3, 139),
+(3, 140),
+(3, 141),
+(3, 142);
 
 -- --------------------------------------------------------
 
@@ -823,7 +937,10 @@ INSERT INTO `services` (`id`, `lang_id`, `service_category_id`, `head_title`, `n
 (4, 1, 4, 'НАША СТУДИЯ ПРЕДОСТАВЛЯЕТ', 'development', 'Разработка', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'ЛЕТС СТАРТ ТУГЕЗЕРО', 'ГЕТ ИН ТАЧ', NULL, NULL),
 (5, 2, 5, 'OUR STUDIO OFFER!', 'promotion!', 'Promotion!', '!Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'GET IN TOUCH!', 'GET IN TOUCH!!!!!!@@23', NULL, '2019-12-04 18:08:24'),
 (6, 1, 6, 'НАША СТУДИЯ ПРЕДОСТАВЛЯЕТ', 'promotion', 'Продвижение', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'ЛЕТС СТАРТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL),
-(7, 2, 1, 'Design Test', 'Design Test', 'Design Test!111', 'Design TestDesign TestDesign TestDesign Test', 'Design Test', 'Design Test', '2019-12-04 18:35:13', '2019-12-04 18:35:13');
+(7, 2, 1, 'Design Test', 'Design Test', 'Design Test!111', 'Design TestDesign TestDesign TestDesign Test', 'Design Test', 'Design Test', '2019-12-04 18:35:13', '2019-12-04 18:35:13'),
+(8, 3, 7, 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', NULL, NULL),
+(9, 3, 8, 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', NULL, NULL),
+(10, 3, 9, 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', 'UKR', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -849,7 +966,10 @@ INSERT INTO `service_categories` (`id`, `lang_id`, `title`, `created_at`, `updat
 (3, 2, 'Development!', NULL, '2019-12-04 18:06:55'),
 (4, 1, 'Разработка', NULL, NULL),
 (5, 2, 'Promotion!', NULL, '2019-12-04 18:05:08'),
-(6, 1, 'Продвижение', NULL, NULL);
+(6, 1, 'Продвижение', NULL, NULL),
+(7, 3, 'UKR', NULL, NULL),
+(8, 3, 'UKR', NULL, NULL),
+(9, 3, 'UKR', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -874,7 +994,8 @@ CREATE TABLE `service_pages` (
 
 INSERT INTO `service_pages` (`id`, `lang_id`, `title`, `footer_title`, `footer_btn_title`, `created_at`, `updated_at`, `read_more_btn_title`) VALUES
 (1, 2, 'OUR STUDIO OFFER', 'LET’S START A NEW PROJECT TOGETHER', 'GET IN TOUCH', NULL, NULL, 'Read More'),
-(2, 1, 'НАША СТУДИЯ ПРЕДОСТАВЛЯЕТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'Читать больше');
+(2, 1, 'НАША СТУДИЯ ПРЕДОСТАВЛЯЕТ', 'ЛЕТС СТАРТ А НЬЮ ПРОДЖЕКТ ТУГЕЗЕР', 'ГЕТ ИН ТАЧ', NULL, NULL, 'Читать больше'),
+(3, 3, 'UKR LANG', 'UKR LANG', 'UKR LANG', NULL, NULL, 'UKR LANG');
 
 -- --------------------------------------------------------
 
@@ -901,7 +1022,12 @@ INSERT INTO `service_to_paragraphs` (`service_id`, `paragraph_id`) VALUES
 (1, 45),
 (2, 46),
 (1, 47),
-(2, 48);
+(2, 48),
+(3, 132),
+(3, 133),
+(3, 134),
+(3, 135),
+(3, 136);
 
 -- --------------------------------------------------------
 
@@ -950,7 +1076,10 @@ INSERT INTO `working_proccesses` (`id`, `title`, `created_at`, `updated_at`, `la
 (3, 'PROTOTYPING\r\n& DESIGN', NULL, NULL, 2),
 (4, 'Прототипизация и дизайн', NULL, NULL, 1),
 (5, 'TECHNICAL\r\nIMPLEMENTATION', NULL, NULL, 2),
-(6, 'Техническая реализация', NULL, NULL, 1);
+(6, 'Техническая реализация', NULL, NULL, 1),
+(7, 'UKR', NULL, NULL, 3),
+(8, 'UKR', NULL, NULL, 3),
+(9, 'UKR', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -978,7 +1107,10 @@ INSERT INTO `working_proccess_services` (`id`, `working_process_id`, `name`, `te
 (3, 3, 'Project analytics and research', 'Lorem EN', NULL, NULL, 2),
 (4, 4, 'Проектная аналитика', 'ЛОРЕМ РУ', NULL, NULL, 1),
 (5, 5, 'Coding and programming', 'LOREM E N', NULL, NULL, 2),
-(6, 6, 'Кодинг и программирование', 'ЛОРЕМ РУ', NULL, NULL, 1);
+(6, 6, 'Кодинг и программирование', 'ЛОРЕМ РУ', NULL, NULL, 1),
+(7, 7, 'TEst', 'TEst', NULL, NULL, 3),
+(8, 8, 'TEst', 'TEst', NULL, NULL, 3),
+(9, 9, 'TEst', 'TEst', NULL, NULL, 3);
 
 --
 -- Индексы сохранённых таблиц
@@ -1214,13 +1346,13 @@ ALTER TABLE `working_proccess_services`
 -- AUTO_INCREMENT для таблицы `about_us_pages`
 --
 ALTER TABLE `about_us_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `blog_pages`
 --
 ALTER TABLE `blog_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `blog_page_details`
@@ -1232,31 +1364,31 @@ ALTER TABLE `blog_page_details`
 -- AUTO_INCREMENT для таблицы `blog_projects`
 --
 ALTER TABLE `blog_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `contact_pages`
 --
 ALTER TABLE `contact_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `home_pages`
 --
 ALTER TABLE `home_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `image_texts`
 --
 ALTER TABLE `image_texts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT для таблицы `langs`
@@ -1274,13 +1406,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `paragraphs`
 --
 ALTER TABLE `paragraphs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio_pages`
 --
 ALTER TABLE `portfolio_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio_page_details`
@@ -1292,25 +1424,25 @@ ALTER TABLE `portfolio_page_details`
 -- AUTO_INCREMENT для таблицы `portfolio_projects`
 --
 ALTER TABLE `portfolio_projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `service_categories`
 --
 ALTER TABLE `service_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `service_pages`
 --
 ALTER TABLE `service_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -1322,13 +1454,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `working_proccesses`
 --
 ALTER TABLE `working_proccesses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `working_proccess_services`
 --
 ALTER TABLE `working_proccess_services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
