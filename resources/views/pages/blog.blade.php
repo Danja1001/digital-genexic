@@ -57,7 +57,7 @@
                 <ul>
                     <li><a href="{{ route('blog.index', ['lang' => 2])}}" id="zoom-fade1">English</a></li>
                     <li><a href="{{ route('blog.index', ['lang' => 1])}}" id="zoom-fade2">Russian</a></li>
-                    <li><a href="#" id="zoom-fade2">ukrainian</a></li>
+                    <li><a href="{{ route('about-us.index', ['lang' => 3])}}" id="zoom-fade2">ukrainian</a></li>
                 </ul>
             </div>
         </div>

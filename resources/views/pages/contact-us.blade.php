@@ -52,7 +52,7 @@
                     <ul>
                         <li><a href="{{ route('contact-us.index', ['lang' => 2])}}" id="zoom-fade1">EN</a></li>
                         <li><a href="{{ route('contact-us.index', ['lang' => 1])}}" id="zoom-fade2">RU</a></li>
-                        <li><a href="#" id="zoom-fade2">ukrainian</a></li>
+                        <li><a href="{{ route('about-us.index', ['lang' => 3])}}" id="zoom-fade2">ukrainian</a></li>
                     </ul>
                 </div>
             </div>
