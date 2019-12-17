@@ -54,7 +54,7 @@
                 <div class="card-body">
                     Lang:
                     @foreach($data['langs'] as $lang)
-                    <a href="{{ route('services-page.index', ['lang' => $lang->id ]) }}">{{ $lang->code }}</a>
+                    <a href="{{ route('admin.services-page.index', ['lang' => $lang->id ]) }}">{{ $lang->code }}</a>
                     @endforeach
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">

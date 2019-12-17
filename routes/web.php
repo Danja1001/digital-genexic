@@ -1,7 +1,10 @@
 <?php
 
 Auth::routes();
-
+Route::match(['post', 'get'], 'register', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('register');
 $adminConfig = [
     'prefix' => 'admin',
     'namespace' => 'Admin'
@@ -34,7 +37,7 @@ Route::group($adminConfig, function () {
     /**
      * SERVICES PAGE
      */
-    Route::get('services-page/{lang}', 'ServicesPageController@index')->name('services-page.index');
+    Route::get('services-page/{lang}', 'ServicesPageController@index')->name('admin.services-page.index');
     Route::post('services-page/update/{id}', 'ServicesPageController@update')->name('services-page.update');
 
     /**
