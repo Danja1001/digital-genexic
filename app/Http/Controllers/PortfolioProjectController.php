@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lang;
+use App\Menu;
 use App\PortfolioProject;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class PortfolioProjectController extends Controller
         $project_hours = $paragraphs->where('location', 'project_hours')->first();
 
         $langs = Lang::all();
+        $menu = Menu::where('lang_id', $lang)->get();
 
         $data['title'] = preg_split('//u', $portfolio_detail_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['portfolio_detail_page'] = $portfolio_detail_page;
@@ -31,6 +33,7 @@ class PortfolioProjectController extends Controller
         $data['project_hours'] = $project_hours;
         $data['langs'] = $langs;
         $data['lang'] = $lang;
+        $data['menu'] = $menu;
 
         return view('pages.portfolio-detail', compact('data'));
     }

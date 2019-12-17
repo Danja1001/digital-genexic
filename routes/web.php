@@ -13,6 +13,7 @@ Route::group($adminConfig, function () {
     /**
      * HOME PAGE ROUTES
      */
+    Route::post('menu/update/{id}', 'MenuController@update')->name('menu.update');
     Route::get('home-page/{lang}', 'HomePageController@index')->name('home-page.index');
     Route::post('home-page/update/{id}', 'HomePageController@update')->name('home-page.update');
 
@@ -76,7 +77,7 @@ Route::group($adminConfig, function () {
     Route::post('blog-detial-page/store', 'BlogDetailController@store')->name('blog-detail-page.store');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{lang?}', 'HomeController@index')->name('home');
 
 /**
  * HOME PAGE ROUTES

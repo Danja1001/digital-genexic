@@ -6,6 +6,7 @@ use App\AboutUsPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Lang;
+use App\Menu;
 
 class AboutUsController extends Controller
 {
@@ -23,6 +24,7 @@ class AboutUsController extends Controller
 
         $read_more = $paragraphs->where('location', 'read_more');
         $langs = Lang::all();
+        $menu = Menu::where('lang_id', $lang)->get();
 
         $data['title'] = preg_split('//u', $about_us_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['icons'] = $icons->where('icon', 1);
@@ -35,6 +37,7 @@ class AboutUsController extends Controller
         $data['read_more'] = $read_more;
         $data['lang'] = $lang;
         $data['langs'] = $langs;
+        $data['menu'] = $menu;
 
         return view('pages.about-us', compact('data'));
     }

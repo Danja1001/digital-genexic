@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lang;
+use App\Menu;
 use App\BlogProject;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class BlogProjectController extends Controller
 
         $icons = $blog_detail_page->images;
         $langs = Lang::all();
+        $menu = Menu::where('lang_id', $lang)->get();
 
         $data['title'] = preg_split('//u', $blog_detail_page->title, NULL, PREG_SPLIT_NO_EMPTY);
         $data['icons'] = $icons;
@@ -24,6 +26,7 @@ class BlogProjectController extends Controller
         $data['blog_projects'] = $blog_projects;
         $data['langs'] = $langs;
         $data['lang'] = $lang;
+        $data['menu'] = $menu;
 
         return view('pages.blog-detail', compact('data'));
     }

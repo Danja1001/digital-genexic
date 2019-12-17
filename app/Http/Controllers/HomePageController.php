@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\HomePage as HomePageModel;
 use App\Lang;
+use App\Menu;
 use App\PortfolioProject;
 use App\WorkingProccess;
 
@@ -24,6 +25,7 @@ class HomePageController extends Controller
         $working_process = $paragraphs->where('location', 'working_process')->first();
         $vision = $paragraphs->where('location', 'vision')->first();
         $langs = Lang::all();
+        $menu = Menu::where('lang_id', $lang)->get();
         $portfolio_projects = PortfolioProject::with('images')->where('lang_id', $lang)->get();
 
         $data['icons'] = $icons;
@@ -36,6 +38,7 @@ class HomePageController extends Controller
         $data['lang'] = $lang;
         $data['langs'] = $langs;
         $data['portfolio_projects'] = $portfolio_projects;
+        $data['menu'] = $menu;
 
         return view('pages.home', compact('data'));
     }

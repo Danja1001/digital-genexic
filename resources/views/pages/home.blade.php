@@ -12,12 +12,9 @@
             </a>
             <nav class="mobile-nav-wrap">
                 <ul class="mobile-header-nav">
-                    <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
-                    <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
-                    <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
-                    <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
-                    <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
-                    <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
+                    @foreach($data['menu'] as $menu)
+                    <li><a href="{{ route($menu->routeName, ['lang' => $data['lang']])}}">{{ $menu->page }}</a></li>
+                    @endforeach
                 </ul>
             </nav>
         </div>
@@ -30,12 +27,9 @@
             <div class="col-lg-6 col-lg-push-1 col-md-7 col-md-push-1 col-sm-8 col-sm-push-1 col-xs-8 nav-media">
                 <div class="header-nav wow flipInX">
                     <ul>
-                        <li><a href="{{ route('home.index', ['lang' => $data['lang']])}}">home</a></li>
-                        <li><a href="{{ route('about-us.index', ['lang' => $data['lang']])}}">about us</a></li>
-                        <li><a href="{{ route('services-page.index', ['lang' => $data['lang']])}}">services</a></li>
-                        <li><a href="{{ route('portfolio.index', ['lang' => $data['lang']]) }}">portfolio</a></li>
-                        <li><a href="{{ route('blog.index', ['lang' => $data['lang']]) }}">blog</a></li>
-                        <li><a href="{{ route('contact-us.index', ['lang' => $data['lang']]) }}">contact us</a></li>
+                        @foreach($data['menu'] as $menu)
+                        <li><a href="{{ route($menu->routeName, ['lang' => $data['lang']])}}">{{ $menu->page }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
