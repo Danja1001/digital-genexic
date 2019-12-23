@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    /**
+    * Show service page
+    */
     public function index($service_id, $lang = 1)
     {
         $data = array();
